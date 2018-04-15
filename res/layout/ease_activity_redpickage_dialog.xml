@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="310dp"
+    android:layout_height="430dp"
+    android:background="@android:color/transparent" >
+
+    <RelativeLayout
+        android:layout_width="310dp"
+        android:layout_height="415dp"
+        android:background="#CD533C"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_red_packet_close" />
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/default_avatar_circle" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_avatar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="晓旭"
+            android:textColor="#FFE294"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="恭喜发财，大吉大利"
+            android:textColor="#FFE294"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_open"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/icon_open_red_packet1" />
+
+        <LinearLayout
+            android:id="@+id/z_select_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="看看大家的手气"
+                android:textColor="#FFE294"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/em_red_packet_dialog_arrow" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

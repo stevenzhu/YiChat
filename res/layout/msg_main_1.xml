@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/z_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_title" >
+
+        <RelativeLayout
+            android:id="@+id/z_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp" >
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_back_white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/z_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true" >
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/msg_main_1_icon_add" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/z_add"
+            android:layout_toRightOf="@id/z_back"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/z_msg"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/tv_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="聊天"
+                    android:textColor="@drawable/text_color_white_grey"
+                    android:textSize="@dimen/text_size16" />
+
+                <View
+                    android:id="@+id/v_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="3dp"
+                    android:layout_alignLeft="@id/tv_msg"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@id/tv_msg"
+                    android:background="@color/color_ffffff"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/z_friend"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/tv_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="通讯录"
+                    android:textColor="@drawable/text_color_white_grey"
+                    android:textSize="@dimen/text_size16" />
+
+                <View
+                    android:id="@+id/v_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="3dp"
+                    android:layout_alignLeft="@id/tv_friend"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@id/tv_friend"
+                    android:background="@color/color_ffffff"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </FrameLayout>
+
+</LinearLayout>

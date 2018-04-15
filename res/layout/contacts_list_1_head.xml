@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/z_new_friend"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_new_friend"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/contacts_list_1_icon_new_friend" />
+
+        <TextView
+            android:id="@+id/tv_new_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="新的朋友"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+    </LinearLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <LinearLayout
+        android:id="@+id/z_group"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_group"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/contacts_list_1_icon_group" />
+
+        <TextView
+            android:id="@+id/tv_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="群聊"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+    </LinearLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+</LinearLayout>

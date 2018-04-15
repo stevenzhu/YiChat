@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_item_all"
+    android:layout_width="match_parent"
+    android:layout_height="59dp"
+    android:background="@color/color_ffffff"
+    android:gravity="center_vertical" >
+
+    <RelativeLayout
+        android:id="@+id/z_item_avatar"
+        android:layout_width="59dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true" >
+
+        <ImageView
+            android:id="@+id/iv_item_avatar"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:id="@+id/iv_item_tag"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:id="@+id/tv_item_unread_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/ease_unread_count_bg"
+            android:gravity="center"
+            android:textColor="@color/text_ffffff"
+            android:textSize="12sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/text_999999"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="6dp"
+        android:layout_toLeftOf="@id/tv_item_time"
+        android:layout_toRightOf="@id/z_item_avatar"
+        android:singleLine="true"
+        android:textColor="@color/text_373737"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_item_state"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="7dp"
+        android:layout_toRightOf="@id/z_item_avatar"
+        android:src="@drawable/ease_msg_state_fail_resend"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_item_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/tv_item_time"
+        android:layout_toRightOf="@id/iv_item_state"
+        android:ellipsize="end"
+        android:padding="7dp"
+        android:singleLine="true"
+        android:textColor="@color/text_6d6d6d"
+        android:textSize="13sp" />
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="快速反馈"
+                android:textColor="@color/text_555555"
+                android:textSize="@dimen/text_size14" />
+
+            <com.shorigo.view.MyListView
+                android:id="@+id/lv_feedback_cate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </com.shorigo.view.MyListView>
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/color_ffffff"
+                android:gravity="top"
+                android:hint="请输入您的意见和建议"
+                android:minHeight="120dp"
+                android:padding="10dp"
+                android:textSize="@dimen/text_size14" />
+
+            <TextView
+                android:id="@+id/tv_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_btn_orange_red"
+                android:gravity="center"
+                android:text="点击反馈"
+                android:textColor="@color/text_ffffff"
+                android:textSize="@dimen/text_size14" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

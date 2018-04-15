@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#f5f5f5" />
+
+    <LinearLayout
+        android:id="@+id/z_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="45dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="2dip"
+        android:paddingTop="2dip" >
+
+        <RelativeLayout
+            android:id="@+id/z_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:gravity="bottom" >
+
+            <EditText
+                android:id="@+id/et_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:imeOptions="actionSend"
+                android:minHeight="35dip"
+                android:paddingBottom="3dp"
+                android:maxLength="20"
+                android:paddingLeft="1dp"
+                android:paddingRight="1dp"
+                android:paddingTop="3dp"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_keyboard_right"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0"
+            android:background="@drawable/ease_chatting_setmode_keyboard_btn"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_biaoqing"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0"
+            android:background="@drawable/ease_chatting_setmode_biaoqing_btn" />
+
+        <LinearLayout
+            android:id="@+id/z_send"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:minWidth="42dip"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="42dip"
+                android:layout_height="32dip"
+                android:background="@drawable/ease_chat_send_btn_selector"
+                android:gravity="center"
+                android:text="发送"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

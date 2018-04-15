@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/z_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_orange"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp" >
+
+            <RelativeLayout
+                android:id="@+id/z_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp" >
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_back_white" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@color/text_ffffff"
+                android:textSize="@dimen/text_size16" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="73dp"
+            android:layout_height="73dp"
+            android:background="@drawable/bg_avatar_frame"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_avatar" />
+
+        <TextView
+            android:id="@+id/tv_money_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="我的余额"
+            android:textColor="@color/text_ffffff"
+            android:textSize="@dimen/text_size14" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:text="￥0"
+            android:textColor="@color/text_ffffff"
+            android:textSize="@dimen/text_size22" />
+    </LinearLayout>
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+    <RelativeLayout
+        android:id="@+id/z_withdrawal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_withdrawal_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/wallet_1_icon_withdrawal" />
+
+        <TextView
+            android:id="@+id/tv_withdrawal_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_withdrawal_icon"
+            android:text="提现"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_withdrawal_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_arrow_right_grey" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
+        android:id="@+id/z_card"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_card_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/wallet_1_icon_card" />
+
+        <TextView
+            android:id="@+id/tv_card_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_card_icon"
+            android:text="我的银行卡"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_card_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_arrow_right_grey" />
+
+        <TextView
+            android:id="@+id/tv_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/iv_card_arrow"
+            android:textColor="@color/text_555555" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
+        android:id="@+id/z_withdrawal_list"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_withdrawal_list_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/wallet_1_icon_withdrawal_list" />
+
+        <TextView
+            android:id="@+id/tv_withdrawal_list_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_withdrawal_list_icon"
+            android:text="提现记录"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_withdrawal_list_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_arrow_right_grey" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+</LinearLayout>

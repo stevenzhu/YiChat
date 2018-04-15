@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.shorigo.yichat">
+
+    <!--<uses-sdk-->
+        <!--android:minSdkVersion="11"-->
+        <!--android:targetSdkVersion="21"-->
+        <!--tools:overrideLibrary="com.umeng.socialize.evernote,com.umeng.socialize.pinterest" />-->
+
+    <!-- 友盟 start -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 友盟 start -->
+
+
+    <!-- 环信 start -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_MOCK_LOCATION"
+        tools:ignore="MockLocation" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 环信 end -->
+
+
+    <!-- 百度地图 start -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 百度地图  end -->
+
+
+    <!-- 小视频录制 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.Camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 小视频录制 -->
+
+    <application
+        android:name="com.shorigo.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+
+        <!-- 设置环信SDK配置 start -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1114180201178512#yirenquanzi" />
+        <!-- 声明SDK所需的service SDK核心功能 -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <!-- 设置环信SDK配置 end -->
+
+
+        <!-- 百度地图SDK配置 start -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" >
+                </action>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="GleGc0dZpO7VufH1odnbiT7Nn5qZVl8j" />
+        <!-- 百度地图SDK配置结束 end -->
+
+
+        <!-- 友盟SDK start -->
+        <activity
+            android:name="com.shorigo.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.shorigo.yichat.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- tencent -->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106332084" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a72934bf43e4868e3000129" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Umeng" >
+        </meta-data>
+
+        <!-- 友盟SDK end -->
+
+
+        <!-- 支付宝SDK start -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <!-- 支付宝SDK end -->
+
+
+        <!-- 微信支付SDK start -->
+        <activity
+            android:name="com.shorigo.yichat.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+
+        <receiver android:name="net.sourceforge.simcpux.AppRegister" >
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+        <!-- 微信支付SDK end -->
+
+
+        <!-- 基础 start -->
+        <!--<activity-->
+            <!--android:name="com.shorigo.BaseUI"-->
+            <!--android:screenOrientation="portrait" />-->
+        <!--<activity-->
+            <!--android:name="com.shorigo.FBaseUI"-->
+            <!--android:screenOrientation="portrait" />-->
+        <activity
+            android:name="look_pic_more.look_pic_more_1.code.LookMorePicUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="look_pic.look_pic_1.code.LookPicUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.shorigo.view.jcvideoplayer.JCFullScreenActivity"
+            android:configChanges="keyboard|screenSize|orientation|layoutDirection" />
+        <!-- 基础 end -->
+
+        <activity android:name="welcome.welcome_1.code.WelcomeUI" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="login.login_1.code.LoginUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="imageselector.imageselector_1.code.ImageSelectorActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="register.register_2.code.RegisterUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="protocol.protocol_1.code.ProtocolUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="forget_pass.forget_pass_1.code.ForgetPassUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="msg_main.msg_main_1.code.MsgMainUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="chat.chat_1.code.ChatUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="chat.chat_1.code.CallUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="chat.chat_1.code.VideoCallUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="chat.chat_1.code.VoiceCallUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="chat.chat_1.code.RedPickageUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="chat.chat_1.code.RedPickageDetailUI"
+            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name="chat.chat_1.code.ContextMenuActivity"-->
+            <!--android:screenOrientation="portrait" />-->
+        <activity
+            android:name="chat.chat_1.code.ForwardMessageUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="contacts_add.contacts_add_1.code.ContactsAddUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="contacts_new_friends.contacts_new_friends_1.code.ContactsNewFriendsUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="group_list.group_list_1.code.GroupListUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="group_detail.group_detail_1.code.GroupDetailUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="group_create.group_create_1.code.GroupCreateUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="group_add_member.group_add_member_1.code.GroupAddMemberUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="group_update_name.group_update_name_1.code.GroupEditNameUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="main.main_1.code.MainUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cms_list.cms_list_1.code.CmsListUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cms_launch.cms_launch_1.code.CmsLaunchUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cms_launch_video.cms_launch_video_1.code.CmsLaunchVideoUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="video_record.video_record_1.code.VideoRecordUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="video_choose.video_choose_1.code.VideoChooseUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cms_detail_img.cms_detail_img_1.code.CmsDetailImgUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cms_detail.cms_detail_1.code.CmsDetailUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cms_comment_detail.cms_comment_detail_1.code.CmsCommentDetailUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="user_info.user_info_1.code.UserInfoUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="user_card.user_card_1.code.UserCardUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="update_sex.update_sex_1.code.UpdateSexUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="update_avatar.update_avatar_1.code.UpdateAvatarUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="update_nick.update_nick_1.code.UpdateNickUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="update_sign.update_sign_1.code.UpdateSignUI"
+            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name="update_pass.update_pass_1.code.UpdatePassUI"-->
+            <!--android:screenOrientation="portrait" />-->
+        <activity
+            android:name="update_address.update_address_1.code.UpdateAddressUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="me.me_3.code.MeUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="me_card.me_card_1.code.MeCardUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="wallet.wallet_1.code.WalletUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="card_add.card_add_1.code.CardAddUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="card_list_del.card_list_del_1.code.CardDelListUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="card_list.card_list_1.code.CardListUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="withdrawal.withdrawal_1.code.WithdrawalUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="withdrawal_list.withdrawal_list_2.code.WithdrawalListUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="about.about_2.code.AboutUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="ad_content.ad_content_1.code.AdContentUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="feedback.feedback_1.code.FeedBackUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="zxing.zxing_1.code.CaptureUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.shorigo.zxing.CaptureResultUI"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

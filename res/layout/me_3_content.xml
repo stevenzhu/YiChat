@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+    <RelativeLayout
+        android:id="@+id/z_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_wallet"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_me_order" />
+
+        <TextView
+            android:id="@+id/tv_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_wallet"
+            android:text="我的钱包"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_wallet_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_arrow_right_grey" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
+        android:id="@+id/z_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_feedback"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_me_feedback" />
+
+        <TextView
+            android:id="@+id/tv_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_feedback"
+            android:text="意见反馈"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_feedback_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_arrow_right_grey" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
+        android:id="@+id/z_about"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_about"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_me_about" />
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_about"
+            android:text="关于我们"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_about_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_arrow_right_grey" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
+        android:id="@+id/z_version"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_version"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_me_version" />
+
+        <TextView
+            android:id="@+id/tv_version_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_version"
+            android:text="版本更新"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="1.0.0"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+    <RelativeLayout
+        android:id="@+id/z_logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_logout"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_me_logout" />
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_logout"
+            android:text="注销"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+</LinearLayout>

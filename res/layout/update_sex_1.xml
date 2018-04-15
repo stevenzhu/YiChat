@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+    <RelativeLayout
+        android:id="@+id/z_man"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:id="@+id/tv_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="男"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size16" />
+
+        <ImageView
+            android:id="@+id/iv_man_state"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
+        android:id="@+id/z_woman"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <TextView
+            android:id="@+id/tv_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="女"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size16" />
+
+        <ImageView
+            android:id="@+id/iv_woman_state"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+
+</LinearLayout>

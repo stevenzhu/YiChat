@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ease_bg_fuzhi_del"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_context_menu_for_voice_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="删除"
+        android:textColor="@color/text_ffffff"
+        android:textSize="@dimen/text_size14" />
+
+</LinearLayout>

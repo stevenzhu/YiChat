@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <com.shorigo.view.refresh.PullRefreshView
+        android:id="@+id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.shorigo.view.MyListView
+                    android:id="@+id/lv_withdrawal_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@color/color_line"
+                    android:dividerHeight="1dip" >
+                </com.shorigo.view.MyListView>
+            </LinearLayout>
+        </ScrollView>
+    </com.shorigo.view.refresh.PullRefreshView>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_time_choose_dialog_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_ffffff"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <com.shorigo.view.wheel.WheelView
+                android:id="@+id/year"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1" />
+
+            <com.shorigo.view.wheel.WheelView
+                android:id="@+id/month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1" />
+
+            <com.shorigo.view.wheel.WheelView
+                android:id="@+id/day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <View style="@style/view_horizontal_line_grey" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_time_choose_dialog_ok"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确认"
+                android:textColor="@drawable/text_color_blue_black"
+                android:textSize="@dimen/text_size14" />
+
+            <View style="@style/view_vertical_line_grey" />
+
+            <TextView
+                android:id="@+id/tv_time_choose_dialog_cancle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@drawable/text_color_blue_black"
+                android:textSize="@dimen/text_size14" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

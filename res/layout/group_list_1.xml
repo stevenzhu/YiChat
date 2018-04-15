@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/lv_msg_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_00000000"
+            android:cacheColorHint="@color/color_00000000"
+            android:descendantFocusability="afterDescendants"
+            android:dividerHeight="1dp"
+            android:fastScrollAlwaysVisible="false"
+            android:fastScrollEnabled="false"
+            android:listSelector="@color/color_00000000" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

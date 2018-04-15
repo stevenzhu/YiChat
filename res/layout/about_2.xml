@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="3dp"
+        android:padding="10dp"
+        android:text="		本平台以发展彝族文化为宗旨，以彝族家谱应用文化为核心，把彝族基于血缘关系的社会存在状态搬上网络应用平台。所以，本平台只针对彝族内部具有一定血缘关系的几个大家族成员为用户，形成一个圈子，实现封闭式社交，并提供其他社会服务。"
+        android:textColor="@color/text_555555"
+        android:textSize="@dimen/text_size14" />
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+    <LinearLayout
+        android:id="@+id/z_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv_phone_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="客服热线："
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="18101092112"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+    </LinearLayout>
+
+    <View style="@style/view_horizontal_line_grey_height" />
+
+</LinearLayout>

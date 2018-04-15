@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View style="@style/view_horizontal_line_grey_height" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入昵称(彝族名字)"
+                    android:imeOptions="actionNext"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_555555"
+                    android:textColorHint="@color/text_999999"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:id="@+id/iv_name"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_reg_nick" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入手机号码"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_555555"
+                    android:textColorHint="@color/text_999999"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:id="@+id/iv_phone"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_reg_phone" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_code"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+
+                <EditText
+                    android:id="@+id/et_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_ffffff"
+                    android:hint="请输入验证码"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_555555"
+                    android:textColorHint="@color/text_999999"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:id="@+id/iv_code"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_reg_code" />
+
+                <TextView
+                    android:id="@+id/tv_get_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_get_code_grey"
+                    android:gravity="center"
+                    android:minWidth="80dp"
+                    android:text="获取验证码"
+                    android:textColor="@color/text_ffffff"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+
+                <EditText
+                    android:id="@+id/et_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:digits="@string/str_digits"
+                    android:hint="请输入密码"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_555555"
+                    android:textColorHint="@color/text_999999"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:id="@+id/iv_pass"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_reg_pass" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/tv_family"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="请选择所属家族"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_reg_pass_again" />
+            </RelativeLayout>
+
+            <View
+                style="@style/view_horizontal_line_grey"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/tv_county"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="请选择所在县"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_reg_pass_again" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/iv_tick"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/checkbox_selector" />
+
+                <TextView
+                    android:id="@+id/tv_xieyidesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="我已阅读"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size12" />
+
+                <TextView
+                    android:id="@+id/tv_xieyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="《相关协议》"
+                    android:textColor="@color/text_orange"
+                    android:textSize="@dimen/text_size12" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_btn_orange_red"
+                android:gravity="center"
+                android:text="注册"
+                android:textColor="@color/text_ffffff"
+                android:textSize="@dimen/text_size14" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

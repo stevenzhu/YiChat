@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_ffffff"
+        android:gravity="center_vertical|left"
+        android:hint="请填写群名称"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/text_555555"
+        android:textColorHint="@color/text_999999"
+        android:textSize="@dimen/text_size14" />
+
+    <EditText
+        android:id="@+id/et_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_ffffff"
+        android:gravity="top|left"
+        android:hint="请输入备注"
+        android:minHeight="100dp"
+        android:padding="10dp"
+        android:textColor="@color/text_555555"
+        android:textColorHint="@color/text_999999"
+        android:textSize="@dimen/text_size14" />
+
+    <LinearLayout
+        android:id="@+id/z_add_member"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/group_create_1_bg_add_member"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/iv_add_member"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/group_create_1_icon_add" />
+
+        <TextView
+            android:id="@+id/tv_add_member"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:text="点击添加成员"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv_group_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:listSelector="@color/color_00000000"
+        android:numColumns="4"
+        android:scrollbars="none" />
+
+</LinearLayout>

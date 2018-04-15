@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center" >
+
+    <TextView
+        android:id="@+id/tv_pop_sb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7f000000"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text=" A "
+        android:textColor="@color/text_ffffff"
+        android:textSize="30sp" />
+
+</LinearLayout>

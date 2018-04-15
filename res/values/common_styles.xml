@@ -1,0 +1,70 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+
+    <style name="view_horizontal_line_white">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dip</item>
+        <item name="android:background">@color/color_ffffff</item>
+    </style>
+
+    <style name="view_horizontal_line_grey">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dip</item>
+        <item name="android:background">@color/color_line</item>
+    </style>
+
+    <style name="view_horizontal_line_blue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dip</item>
+        <item name="android:background">@color/color_blue</item>
+    </style>
+
+    <style name="view_horizontal_line_grey_height">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">8dip</item>
+        <item name="android:background">@color/color_f5f5f5</item>
+    </style>
+
+    <style name="view_vertical_line_grey">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/color_line</item>
+    </style>
+
+    <style name="view_vertical_line_white">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/color_ffffff</item>
+    </style>
+    
+    <!-- 对话框样式 -->
+    <style name="custom_dialog_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+    
+    <style name="MorePop">
+        <item name="android:windowEnterAnimation">@anim/more_pop_in</item>
+        <item name="android:windowExitAnimation">@anim/more_pop_out</item>
+    </style>
+
+    <style name="tab_rad">
+        <item name="android:button">@null</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@drawable/selc_tab_rad</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">24dp</item>
+    </style>
+
+</resources>

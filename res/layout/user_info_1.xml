@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/z_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_ffffff"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_avatar_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="头		 像"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="73dp"
+                    android:layout_height="73dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/default_avatar_angle" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey_height" />
+
+            <RelativeLayout
+                android:id="@+id/z_nick"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_nick_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="昵		 称"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_nick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_qrcode"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_qrcode_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="二  维  码"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:id="@+id/iv_qrcode"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/icon_qrcode_logo"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_sex"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_sex_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="性		 别"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical|right"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_age"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_age_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="年		 龄"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical|right"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_phone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_phone_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="手机号码"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_family"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_family_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="所在家族"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_family"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_county"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_county_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="所在县"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_county"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_address"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_address_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="详细地址"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_sign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_ffffff"
+                android:minHeight="50dp"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_sign_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="个人简介"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_sign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@null"
+                    android:gravity="center_vertical|right"
+                    android:maxWidth="200dp"
+                    android:minWidth="200dp"
+                    android:textColor="@color/text_777777"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

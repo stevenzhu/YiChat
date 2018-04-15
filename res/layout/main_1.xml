@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/z_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_title" >
+
+        <RelativeLayout
+            android:id="@+id/z_me"
+            android:layout_width="50dp"
+            android:layout_height="50dp" >
+
+            <ImageView
+                android:id="@+id/iv_me"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_me" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="同城彝人"
+            android:textColor="@color/text_ffffff"
+            android:textSize="@dimen/text_size16" />
+
+        <RelativeLayout
+            android:id="@+id/z_msg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true" >
+
+            <ImageView
+                android:id="@+id/iv_msg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_msg" />
+
+            <TextView
+                android:id="@+id/tv_msg_count"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="3dp"
+                android:background="@drawable/unread_count_bg"
+                android:gravity="center"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_size14"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <LinearLayout
+            android:id="@+id/z_launch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_btn_circle"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/tv_launch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="发布"
+                android:textColor="@color/text_ffffff"
+                android:textSize="@dimen/text_size14" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/icon_location"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_above="@id/iv_location"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/icon_refresh"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/iv_dynamic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/icon_doctor_mien"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+
+</LinearLayout>

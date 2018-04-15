@@ -1,0 +1,148 @@
+buildscript {
+
+	repositories {
+		mavenCentral()
+        google()
+    }
+	dependencies {
+//		classpath 'com.android.tools.build:gradle:0.14.+'
+        classpath 'com.android.tools.build:gradle:3.0.0'
+	}
+}
+
+apply plugin: 'android'
+
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    //    compile project(':vitamo4.0')
+    //    compile project(':ViewPagerLibrary')
+    compile 'com.android.support:multidex:1.0.0'
+    //    compile 'com.github.yangjie10930:EpMedia:v0.9.4'
+    implementation project(':EaseUI')
+    implementation project(':joevideolib')
+    //implementation project(':SmallVideoLib')
+//    implementation project(':picturelibrary')
+    implementation files('libs/isoparser-1.0.6.jar')
+    implementation 'com.aitangba:swipeback:1.0.2'
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
+
+    //compile 'cjt.library.wheel:camera:1.1.9'
+}
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+//    enforceUniquePackageName=false
+    
+    lintOptions{
+    	abortOnError false
+    }
+    defaultConfig {
+        applicationId "com.shorigo.yichat"
+        versionName "0.9.3"
+        versionCode 3
+    	minSdkVersion 17
+    	targetSdkVersion 21
+        //multiDexEnabled true
+        multiDexEnabled true
+    }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+	signingConfigs {
+        debug {
+            keyAlias 'yichat'
+            keyPassword 'yichat'
+            storeFile  file('./yichat.keystore')
+            storePassword 'yichat'
+        }
+        myrelease {
+//            keyAlias 'shorigo_origincode.keystore'
+//            keyPassword 'shorigo123'
+//            storeFile  file('./shorigo_origincode.keystore')
+//            storePassword 'shorigo123'
+
+            keyAlias 'yichat'
+            keyPassword 'yichat'
+            storeFile  file('./yichat.keystore')
+            storePassword 'yichat'
+        }
+     }
+     buildTypes {
+       release {
+           minifyEnabled false
+           proguardFile getDefaultProguardFile('proguard-android.txt')
+		   signingConfig signingConfigs.myrelease
+        }
+     }
+    
+     //productFlavors {
+     //  normal {
+     //  }
+     //
+     //   qinghua {
+     //       applicationId 'com.shorigo'
+     //   }
+     //}
+     
+     dexOptions {
+     	preDexLibraries = false
+     	dexOptions {
+        	javaMaxHeapSize "2g"
+    	}
+     }
+
+	sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDir(['libs'])
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    configurations {
+        //all*.exclude group: 'com.android.support', module: 'support-compat-25.3.0'
+        all*.exclude group: 'com.android.support', module: 'support-v4'
+        all*.exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    
+}  
+    
+    afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each { dx ->
+    	//def listFile = project.rootDir.absolutePath+'app/main.txt'
+        if (dx.additionalParameters == null) {
+            dx.additionalParameters = []
+        }
+        dx.additionalParameters += '--multi-dex' // enable multidex
+        // dx.additionalParameters += "--main-dex-list=$projectDir/<filename>".toString() // enable the main-dex-list
+    }
+}
+
+repositories {
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+
+}

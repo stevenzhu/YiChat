@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View style="@style/view_horizontal_line_grey_height" />
+
+            <com.shorigo.view.MyListView
+                android:id="@+id/lv_card_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/color_00000000"
+                android:dividerHeight="10dp" />
+
+            <TextView
+                android:id="@+id/tv_card_list_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dip"
+                android:text="未绑定银行卡！"
+                android:textColor="@color/text_555555"
+                android:textSize="@dimen/text_size16"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_bing"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/bg_bottom_orange"
+        android:gravity="center"
+        android:text="添加新的银行卡"
+        android:textColor="@color/text_ffffff"
+        android:textSize="@dimen/text_size14" />
+
+</LinearLayout>

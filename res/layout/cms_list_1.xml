@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:orientation="horizontal" >-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_hot"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="最热"-->
+            <!--android:textColor="@drawable/text_color_orange_black"-->
+            <!--android:textSize="@dimen/text_size14" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_new"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="最新"-->
+            <!--android:textColor="@drawable/text_color_orange_black"-->
+            <!--android:textSize="@dimen/text_size14" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvCity"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="同城"-->
+            <!--android:textColor="@drawable/text_color_orange_black"-->
+            <!--android:textSize="@dimen/text_size14" />-->
+    <!--</LinearLayout>-->
+
+    <RadioGroup
+        android:id="@+id/radGrp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:background="@drawable/sh_tab"
+        android:padding="1dp">
+        <RadioButton
+            android:id="@+id/tv_hot"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="最热"
+            android:layout_weight="1"
+            android:background="@drawable/sel_tab_left"
+            style="@style/tab_rad"
+            android:checked="true"/>
+        <View android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/tab_border"/>
+        <RadioButton
+            android:id="@+id/tv_new"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="最新"
+            android:layout_weight="1"
+            android:background="@drawable/sel_tab_mid"
+            style="@style/tab_rad"/>
+        <View android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/tab_border"/>
+        <RadioButton
+            android:id="@+id/tvCity"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="同城"
+            android:layout_weight="1"
+            android:background="@drawable/sel_tab_r"
+            style="@style/tab_rad"/>
+    </RadioGroup>
+
+    <com.shorigo.view.refresh.PullRefreshView
+        android:id="@+id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.shorigo.view.MyListView
+                    android:id="@+id/lv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/color_line"
+                    android:dividerHeight="0.5dip" >
+                </com.shorigo.view.MyListView>
+            </LinearLayout>
+        </ScrollView>
+    </com.shorigo.view.refresh.PullRefreshView>
+
+</LinearLayout>

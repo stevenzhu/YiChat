@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/em_red_packet_detail_head" />
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/default_avatar_angle" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="晓旭"
+                    android:textColor="@color/text_373737"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_pin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="#FCC223"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:text="拼"
+                    android:textColor="@color/text_ffffff"
+                    android:textSize="@dimen/text_size12"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="恭喜发财，大吉大利"
+                android:textColor="@color/text_777777"
+                android:textSize="@dimen/text_size14"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/z_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical|bottom"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="@color/text_373737"
+                    android:textSize="@dimen/text_size26" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="元"
+                    android:textColor="@color/text_373737"
+                    android:textSize="@dimen/text_size14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/em_red_packet_detail_bottom"
+                android:orientation="vertical"
+                android:paddingTop="25dp" >
+
+                <TextView
+                    android:id="@+id/tv_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="2个红包，共20.00元"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <com.shorigo.view.MyListView
+                    android:id="@+id/lv_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/color_line"
+                    android:dividerHeight="0.5dp"
+                    android:listSelector="@color/color_00000000" >
+                </com.shorigo.view.MyListView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

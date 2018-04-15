@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_item_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_000000" >
+
+    <ImageView
+        android:id="@+id/iv_item_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:minHeight="200dp"
+        android:src="@drawable/default_img" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/iv_item_img"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="5dp"
+                android:text="了肯德基撒来得及爱上了啊山东矿机氨基酸来看待按揭贷款了阿萨德降落伞鸡啊胜利大街撒达拉斯建档立卡几点啦点击 "
+                android:textColor="@color/text_ffffff"
+                android:textSize="@dimen/text_size14" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

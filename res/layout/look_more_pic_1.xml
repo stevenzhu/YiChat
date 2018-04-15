@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.shorigo.view.ViewPagerFixed
+        android:id="@+id/vp_look_more_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_000000" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/lldot_look_more_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

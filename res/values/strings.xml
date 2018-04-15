@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">彝人圈子</string>
+
+    <!-- msgadapter -->
+    <item name="tag_first" type="id"></item>
+    <item name="tag_second" type="id"></item>
+
+    <string name="str_digits">.0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
+
+</resources>

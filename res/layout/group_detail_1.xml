@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f8f8f8"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_ffffff"
+                android:orientation="vertical" >
+
+                <com.hyphenate.easeui.widget.EaseExpandGridView
+                    android:id="@+id/gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@color/color_ffffff"
+                    android:gravity="start"
+                    android:horizontalSpacing="6dp"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="4"
+                    android:verticalSpacing="10dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/z_group_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_group_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/Change_the_group_name"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_group_name_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="点击修改群名"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_group_desc"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_group_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/change_the_group_description"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_group_desc_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey_height" />
+
+            <RelativeLayout
+                android:id="@+id/z_switch_groupmsg"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_switch_groupmsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/Shielding_of_the_message"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <ImageView
+                    android:id="@+id/iv_switch_groupmsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+
+            <View style="@style/view_horizontal_line_grey" />
+
+            <RelativeLayout
+                android:id="@+id/z_clear_all_history"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@color/color_ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_clear_all_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/Empty_the_chat_record"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/tv_exit_group"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_btn_orange_red"
+                android:gravity="center"
+                android:onClick="exitGroup"
+                android:text="@string/Exit_the_group_chat"
+                android:textColor="@color/text_ffffff"
+                android:textSize="@dimen/text_size14" />
+
+            <Button
+                android:id="@+id/tv_exitdel_group"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/bg_btn_orange_red"
+                android:gravity="center"
+                android:onClick="exitDeleteGroup"
+                android:text="@string/dismiss_group"
+                android:textColor="@color/text_ffffff"
+                android:textSize="@dimen/text_size14"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

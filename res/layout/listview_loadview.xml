@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:id="@+id/ll_listview_loading"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginTop="5dip"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            android:layout_width="15dip"
+            android:layout_height="15dip"
+            android:layout_marginTop="1dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_vertical"
+            android:text="加载数据。。。"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</LinearLayout>

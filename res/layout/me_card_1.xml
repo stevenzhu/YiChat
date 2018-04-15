@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/z_all"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2D3132"
+    android:orientation="vertical" >
+
+    <include layout="@layout/common_headbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/color_ffffff"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" >
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/default_avatar_angle" />
+
+                <TextView
+                    android:id="@+id/tv_user_nick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/iv_avatar"
+                    android:gravity="center"
+                    android:text="晓旭"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size16" />
+
+                <ImageView
+                    android:id="@+id/iv_sex"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/tv_user_nick"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_user_nick"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/iv_avatar"
+                    android:gravity="center"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size13" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp" >
+
+                <!--fitXY-->
+                <ImageView
+                    android:id="@+id/iv_qrcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_qrcode_logo" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="扫一扫上面的二维码图案，加我好友"
+                android:textColor="@color/text_555555"
+                android:textSize="@dimen/text_size13" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
