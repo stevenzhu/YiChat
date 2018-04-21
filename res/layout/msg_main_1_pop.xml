@@ -20,12 +20,12 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
-            android:paddingRight="10dp" >
+            android:paddingRight="9dp" >
 
             <ImageView
                 android:id="@+id/iv_group_create"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/msg_main_1_icon_group_create" />
 
@@ -54,8 +54,8 @@
 
             <ImageView
                 android:id="@+id/iv_contacts_add"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/msg_main_1_icon_contacts_add" />
 
@@ -80,12 +80,12 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
-            android:paddingRight="10dp" >
+            android:paddingRight="12dp" >
 
             <ImageView
                 android:id="@+id/iv_qrcode"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/msg_main_1_icon_qrcode" />
 
