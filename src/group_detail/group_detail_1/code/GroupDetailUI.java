@@ -450,9 +450,7 @@ public class GroupDetailUI extends BaseUI {
 	}
 
 	/**
-	 * 增加群成员
-	 * 
-	 * @param newmembers
+	 * 增加群成员newmembers
 	 */
 	private void addMembersToGroup() {
 		Gson gson = new Gson();

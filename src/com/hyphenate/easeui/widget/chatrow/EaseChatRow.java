@@ -107,7 +107,8 @@ public abstract class EaseChatRow extends LinearLayout {
 		TextView timestamp = (TextView) findViewById(R.id.timestamp);
 		if (timestamp != null) {
 			if (position == 0) {
-				timestamp.setText(DateUtils.getTimestampString(new Date(message.getMsgTime())));
+				//timestamp.setText(DateUtils.getTimestampString(new Date(message.getMsgTime())));
+				timestamp.setText(utils.DateUtils.convertDate2String(new Date(message.getMsgTime()),"HH:mm"));
 				timestamp.setVisibility(View.VISIBLE);
 			} else {
 				// show time stamp if interval with last message is > 30 seconds
@@ -115,7 +116,8 @@ public abstract class EaseChatRow extends LinearLayout {
 				if (prevMessage != null && DateUtils.isCloseEnough(message.getMsgTime(), prevMessage.getMsgTime())) {
 					timestamp.setVisibility(View.GONE);
 				} else {
-					timestamp.setText(DateUtils.getTimestampString(new Date(message.getMsgTime())));
+					timestamp.setText(utils.DateUtils.convertDate2String(new Date(message.getMsgTime()),"HH:mm"));
+					//timestamp.setText(DateUtils.getTimestampString(new Date(message.getMsgTime())));
 					timestamp.setVisibility(View.VISIBLE);
 				}
 			}
