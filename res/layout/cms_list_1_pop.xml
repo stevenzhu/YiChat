@@ -23,8 +23,8 @@
             android:paddingRight="10dp" >
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/cms_list_1_icon_cms_launch" />
 
@@ -48,11 +48,11 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
-            android:paddingRight="10dp" >
+            android:paddingRight="8dp" >
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/cms_list_1_icon_video_record" />
 
@@ -64,7 +64,8 @@
                 android:textColor="@color/text_ffffff"
                 android:textSize="@dimen/text_size14" />
         </LinearLayout>
-        <View
+
+        <View
             style="@style/view_horizontal_line_white"
             android:layout_height="0.5dp" />
 
@@ -78,8 +79,8 @@
             android:paddingRight="10dp" >
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/cms_list_1_icon_video_upload" />
 
@@ -87,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:text="上传视频"
+                android:text="本地视频"
                 android:textColor="@color/text_ffffff"
                 android:textSize="@dimen/text_size14" />
         </LinearLayout>
