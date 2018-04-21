@@ -315,7 +315,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="video_record.video_record_1.code.VideoRecordUI"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
         <activity
             android:name="video_choose.video_choose_1.code.VideoChooseUI"
             android:screenOrientation="portrait" />
