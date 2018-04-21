@@ -59,14 +59,14 @@
     <RelativeLayout
         android:id="@+id/record_layout"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="140dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/color_000000" >
+        android:background="#11000000" >
 
         <video_record.video_record_1.code.RecordProgressView
             android:id="@+id/record_progress_view"
             android:layout_width="match_parent"
-            android:layout_height="3dp" />
+            android:layout_height="3px" />
 
         <TextView
             android:id="@+id/progress_time"

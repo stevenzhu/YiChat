@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -71,7 +72,7 @@ public class VideoRecordUI extends BaseUI implements TXRecordCommon.ITXVideoReco
 	private ScaleGestureDetector mScaleGestureDetector;
 	private float mScaleFactor;
 	private float mLastScaleFactor;
-
+    private ImageView iv_record;
 	private int mRecommendQuality = TXRecordCommon.VIDEO_QUALITY_MEDIUM;
 	private int mMinDuration = 1 * 1000;
 	private int mMaxDuration = 15 * 1000;
@@ -129,7 +130,7 @@ public class VideoRecordUI extends BaseUI implements TXRecordCommon.ITXVideoReco
 		mMaskLayout = (FrameLayout) findViewById(R.id.mask);
 		mMaskLayout.setOnTouchListener(this);
 
-		ImageView iv_record = (ImageView) findViewById(R.id.iv_record);
+		iv_record = (ImageView) findViewById(R.id.iv_record);
 		iv_record.setOnClickListener(this);
 		mIvConfirm = (ImageView) findViewById(R.id.btn_confirm);
 		mIvConfirm.setOnClickListener(this);
@@ -275,10 +276,11 @@ public class VideoRecordUI extends BaseUI implements TXRecordCommon.ITXVideoReco
 	}
 
 	private void deleteLastPart() {
-		if (mRecording) {
+		Log.d("--------mRecording",mRecording+"--isSelected"+isSelected);
+		if (!mRecording) {
 			return;
 		}
-		if (!isSelected) {
+		if (isSelected) {
 			isSelected = true;
 			mRecordProgressView.selectLast();
 		} else {
@@ -306,14 +308,19 @@ public class VideoRecordUI extends BaseUI implements TXRecordCommon.ITXVideoReco
 		if (mRecording) {
 			if (mPause) {
 				if (mTXCameraRecord.getPartsManager().getPartsPathList().size() == 0) {
+					iv_record.setImageResource(R.drawable.pause_rd);
 					startRecord();
 				} else {
+					iv_record.setImageResource(R.drawable.pause_rd);
 					resumeRecord();
 				}
 			} else {
+				iv_record.setImageResource(R.drawable.video_record_1_icon_record);
 				pauseRecord();
 			}
 		} else {
+			//iv_record.setImageResource(R.drawable.video_record_1_icon_record);
+			iv_record.setImageResource(R.drawable.pause_rd);
 			startRecord();
 		}
 		mLastClickTime = currentClickTime;

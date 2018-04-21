@@ -3,7 +3,7 @@
 
     <color name="camera_white">#ffffffff</color>
     <color name="camera_red">#ff0000</color>
-    <color name="camera_bg">#2c2c2c</color>
+    <color name="camera_bg">#22000000</color>
     <color name="camera_progress">#2980B9</color>
     <color name="camera_progress_split">#005084</color>
     <color name="camera_progress_three">#329DF8</color>
