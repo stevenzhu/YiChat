@@ -104,45 +104,45 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/split-apk" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/splits-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/umeng_social_net.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:multidex-1.0.2" level="project" />
-    <orderEntry type="library" name="com.android.support:support-v4-23.4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support:multidex-1.0.0" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/liteavsdk.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/async_http_client.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/baidumapapi_util_v3_7_3.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/aspectjrt-1.7.3.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/nineoldandroids-2.4.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/hyphenatechat_3.3.2.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/SocialSDK_WeiXin_Full.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/zing-3.0.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-23.4.0" level="project" />
     <orderEntry type="library" name="com.android.support:animated-vector-drawable-23.4.0" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/umeng_social_net.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/wechat-sdk-android-with-mta-1.1.6.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/umeng_social_shareview.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/glide-3.6.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/gson-2.2.1.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/goto.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/zing-3.0.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/umeng_social_tool.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/aspectjrt-1.7.3.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/org.apache.http.legacy.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/alipaySdk-20170407.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/nineoldandroids-2.4.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/isoparser-1.0.6.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/umeng_social_api.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/hyphenatechat_3.3.2.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/SocialSDK_QQ_Simplify.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/gson-2.2.1.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/umeng_social_tool.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/android-support-v4.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/isoparser-1.0.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-vector-drawable-23.4.0" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/org.apache.http.legacy.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/xUtils-2.6.14.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.aitangba:swipeback-1.0.2" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/BaiduLBS_Android.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/xUtils-2.6.14.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/SocialSDK_WeiXin_Full.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/baidumapapi_util_v3_7_3.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/BaiduLBS_Android.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/glide-3.6.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/liteavsdk.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/umeng_social_api.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/goto.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/alipaySdk-20170407.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/umeng_social_shareview.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="cn.jzvd:jiaozivideoplayer-6.2.9" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/SocialSDK_QQ_Simplify.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/SocialSDK_Sina_Simplify.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/wechat-sdk-android-with-mta-1.1.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.2" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/SocialSDK_Sina_Simplify.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="__local_aars__:/Users/a666/YiChat/libs/android-support-v4.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/async_http_client.jar:unspecified@jar" level="project" />
     <orderEntry type="module" module-name="EaseUI" />
     <orderEntry type="module" module-name="joevideolib" />
   </component>

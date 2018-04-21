@@ -45,7 +45,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/icon_reg_nick" />
+                    android:src="@drawable/user_img" />
             </RelativeLayout>
 
             <View style="@style/view_horizontal_line_grey" />
@@ -78,7 +78,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/icon_reg_phone" />
+                    android:src="@drawable/phone_img" />
             </RelativeLayout>
 
             <View style="@style/view_horizontal_line_grey" />
@@ -111,7 +111,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/icon_reg_code" />
+                    android:src="@drawable/yanzhengma_img" />
 
                 <TextView
                     android:id="@+id/tv_get_code"
@@ -157,7 +157,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/icon_reg_pass" />
+                    android:src="@drawable/password_img" />
             </RelativeLayout>
 
             <View style="@style/view_horizontal_line_grey" />

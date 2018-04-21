@@ -61,7 +61,7 @@
                     android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/icon_reg_nick" />
+                    android:background="@drawable/phone_img" />
             </RelativeLayout>
 
             <View style="@style/view_horizontal_line_grey" />
@@ -92,7 +92,7 @@
                     android:layout_height="20dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/icon_reg_pass" />
+                    android:background="@drawable/password_img" />
             </RelativeLayout>
 
             <TextView
