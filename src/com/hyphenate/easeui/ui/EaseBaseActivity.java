@@ -9,19 +9,27 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import com.aitangba.swipeback.SwipeBackActivity;
 import com.hyphenate.easeui.EaseUI;
+import com.shorigo.yichat.R;
+
+import yichat.util.StatusBarCompat;
 
 @SuppressLint({ "NewApi", "Registered" })
-public class EaseBaseActivity extends FragmentActivity {
+public class EaseBaseActivity extends SwipeBackActivity {
 
 	protected InputMethodManager inputMethodManager;
-
+	protected void setImmerseLayout() {
+		//第二个参数是想要设置的颜色
+		StatusBarCompat.compat(this, getResources().getColor(R.color.color_orange));
+	}
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		// http://stackoverflow.com/questions/4341600/how-to-prevent-multiple-instances-of-an-activity-when-it-is-launched-with-differ/
 		// should be in launcher activity, but all app use this can avoid the
 		// problem
+		setImmerseLayout();
 		if (!isTaskRoot()) {
 			Intent intent = getIntent();
 			String action = intent.getAction();

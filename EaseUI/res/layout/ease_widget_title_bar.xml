@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_centerInParent="true"
             android:scaleType="fitXY"
             android:src="@drawable/icon_back" />
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="#ffffff"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <RelativeLayout
         android:id="@+id/z_right"
@@ -46,8 +46,8 @@
 
         <ImageView
             android:id="@+id/iv_right"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_centerInParent="true"
             android:scaleType="fitXY" />
     </RelativeLayout>

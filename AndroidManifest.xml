@@ -303,7 +303,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="main.main_1.code.MainUI"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
         <activity
             android:name="cms_list.cms_list_1.code.CmsListUI"
             android:screenOrientation="portrait" />
