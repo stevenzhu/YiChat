@@ -14,6 +14,8 @@ import com.aitangba.swipeback.SwipeBackActivity;
 import com.shorigo.utils.Constants;
 import com.shorigo.yichat.R;
 
+import yichat.util.StatusBarCompat;
+
 /**
  * 基类
  * 
@@ -22,7 +24,10 @@ import com.shorigo.yichat.R;
  */
 public abstract class FBaseUI extends SwipeBackActivity implements OnClickListener {
 	private String isExit;
-
+	protected void setImmerseLayout() {
+		//第二个参数是想要设置的颜色
+		StatusBarCompat.compat(this, getResources().getColor(R.color.color_orange));
+	}
 	/**
 	 * 描述：创建
 	 */
@@ -31,6 +36,8 @@ public abstract class FBaseUI extends SwipeBackActivity implements OnClickListen
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		super.onCreate(savedInstanceState);
+		setImmerseLayout();
+
 		init();
 		findView_AddListener();
 		isExit = getIntent().getStringExtra("isExit");

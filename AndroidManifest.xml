@@ -340,7 +340,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="update_avatar.update_avatar_1.code.UpdateAvatarUI"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name="update_nick.update_nick_1.code.UpdateNickUI"
             android:screenOrientation="portrait" />

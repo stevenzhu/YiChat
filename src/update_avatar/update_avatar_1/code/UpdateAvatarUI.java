@@ -84,6 +84,7 @@ public class UpdateAvatarUI extends BaseUI {
 			@Override
 			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 				super.onSuccess(statusCode, headers, response);
+				String str=response.toString();
 				RequestReturnBean returnBean = UpdateAvatarJson.setUserInfo(response.toString());
 				if (HttpUtil.isSuccess(UpdateAvatarUI.this, returnBean.getCode())) {
 					if (userMap != null) {

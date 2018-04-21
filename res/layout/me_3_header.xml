@@ -23,10 +23,9 @@
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_centerInParent="true"
-            android:scaleType="fitXY"
             android:src="@drawable/icon_back_white" />
     </RelativeLayout>
 
@@ -40,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="@color/text_ffffff"
-            android:textSize="@dimen/text_size14" />
+            android:textSize="@dimen/text_size18" />
     </RelativeLayout>
 
     <TextView
@@ -53,6 +52,6 @@
         android:maxLines="1"
         android:padding="10dp"
         android:textColor="@color/text_ffffff"
-        android:textSize="@dimen/text_size12" />
+        android:textSize="@dimen/text_size14" />
 
 </RelativeLayout>
