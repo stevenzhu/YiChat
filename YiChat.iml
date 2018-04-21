@@ -94,6 +94,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/prebuild" />
@@ -107,6 +108,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/reports" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
@@ -121,6 +123,7 @@
     <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/SocialSDK_WeiXin_Full.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/zing-3.0.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-23.4.0" level="project" />
+    <orderEntry type="library" name="de.hdodenhof:circleimageview-2.2.0" level="project" />
     <orderEntry type="library" name="com.android.support:animated-vector-drawable-23.4.0" level="project" />
     <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/SocialSDK_QQ_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/gson-2.2.1.jar:unspecified@jar" level="project" />
@@ -141,8 +144,10 @@
     <orderEntry type="library" name="cn.jzvd:jiaozivideoplayer-6.2.9" level="project" />
     <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/SocialSDK_Sina_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/wechat-sdk-android-with-mta-1.1.6.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.2" level="project" />
     <orderEntry type="library" name="__local_aars__:/android_project/YiChat/libs/async_http_client.jar:unspecified@jar" level="project" />
+    <orderEntry type="module" module-name="EaseUI" />
+    <orderEntry type="module" module-name="joevideolib" />
+    <orderEntry type="library" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.2" level="project" />
     <orderEntry type="module" module-name="EaseUI" />
     <orderEntry type="module" module-name="joevideolib" />
   </component>

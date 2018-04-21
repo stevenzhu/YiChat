@@ -26,7 +26,7 @@ dependencies {
     implementation files('libs/isoparser-1.0.6.jar')
     implementation 'com.aitangba:swipeback:1.0.2'
     implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
-
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
     //compile 'cjt.library.wheel:camera:1.1.9'
 }
 

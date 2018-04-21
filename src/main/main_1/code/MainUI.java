@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import login.login_1.code.LoginUI;
 import me.me_3.code.MeUI;
 import msg_main.msg_main_1.code.MsgMainUI;
@@ -17,6 +18,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,6 +48,13 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.LatLngBounds;
+import com.bumptech.glide.BitmapTypeRequest;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hyphenate.chat.EMClient;
@@ -78,8 +89,11 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 	private String locationCity;
 	//
 	private LatLng searchLatLng;
-
+    private List<String> listIds;
 	private List<Map<String, String>> listMap;
+	private String sex = "";
+	//private BitmapDescriptor market_boy1=BitmapDescriptorFactory.fromBitmap("http://59.110.225.146/uploads/img/59215dbec2e2b51c653b3c58c0a9a4bf.jpeg");
+
 	private BitmapDescriptor market_boy = BitmapDescriptorFactory.fromResource(R.drawable.market_boy);
 	private BitmapDescriptor market_girl = BitmapDescriptorFactory.fromResource(R.drawable.market_girl);
 	private BitmapDescriptor market_boy_down = BitmapDescriptorFactory.fromResource(R.drawable.market_boy_down);
@@ -167,6 +181,7 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 	protected void onResume() {
 		mMapView.onResume();
 		super.onResume();
+		//getNearList();
 		refresh();
 	}
 
@@ -268,29 +283,78 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 		if (listMap == null) {
 			return;
 		}
-		String sex = "";
+
+
+
+
 		Gson gson = new Gson();
 		Type listStringTemp = new TypeToken<List<String>>() {
 		}.getType();
-		List<String> listIds = gson.fromJson(ACache.get(this).getAsString("list_user_id"), listStringTemp);
+		listIds = gson.fromJson(ACache.get(this).getAsString("list_user_id"), listStringTemp);
 		if (listIds == null) {
 			listIds = new ArrayList<String>();
 		}
-		for (int i = 0; i < listMap.size(); i++) {
-			sex = listMap.get(i).get("sex");
-			if (listIds.contains(listMap.get(i).get("user_id"))) {
-				if ("1".equals(sex)) {
-					initMapMarker(listMap.get(i), market_boy_down);
-				} else if ("2".equals(sex)) {
-					initMapMarker(listMap.get(i), market_girl_down);
+		for ( int i = 0; i < listMap.size(); i++) {
+			final int position =i;
+			String str=listMap.get(i).get("avatar");
+			Glide.with(this).load(listMap.get(i).get("avatar")).asBitmap()
+            .listener(new RequestListener<String, Bitmap>() {
+				@Override
+				public boolean onException(Exception e, String s, Target<Bitmap> target, boolean b) {
+					Log.d("---------------",position+"error");
+
+					sex = listMap.get(position).get("sex");
+					if (listIds.contains(listMap.get(position).get("user_id"))) {
+						if ("1".equals(sex)) {
+							initMapMarker(listMap.get(position), market_boy_down);
+						} else if ("2".equals(sex)) {
+							initMapMarker(listMap.get(position), market_girl_down);
+						}
+					} else {
+						if ("1".equals(sex)) {
+							initMapMarker(listMap.get(position), market_boy);
+						} else if ("2".equals(sex)) {
+							initMapMarker(listMap.get(position), market_girl);
+						}
+					}
+
+					return false;
 				}
-			} else {
-				if ("1".equals(sex)) {
-					initMapMarker(listMap.get(i), market_boy);
-				} else if ("2".equals(sex)) {
-					initMapMarker(listMap.get(i), market_girl);
+
+				@Override
+				public boolean onResourceReady(Bitmap bitmap, String s, Target<Bitmap> target, boolean b, boolean b1) {
+					Log.d("---------------",position+"success");
+					RelativeLayout r = new RelativeLayout(MainUI.this);
+					r.setPadding(7,6,6,17);
+					sex = listMap.get(position).get("sex");
+					if ("1".equals(sex)) {
+						r.setBackground(getResources().getDrawable(R.drawable.market_boy_down));
+					} else if ("2".equals(sex)) {
+						r.setBackground(getResources().getDrawable(R.drawable.market_girl_down));
+					}
+
+					CircleImageView mImageView = new CircleImageView(MainUI.this);
+					//mImageView.setBorderWidth(4);
+					//mImageView.setBorderColor(getResources().getColor(R.color.color_8b8b8b));
+					mImageView.setImageBitmap(bitmap);
+					RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(106, 106);
+					mImageView.setLayoutParams(params);
+					r.addView(mImageView);
+					market_boy=BitmapDescriptorFactory.fromView(r);
+					initMapMarker(listMap.get(position), market_boy);
+
+					return false;
 				}
-			}
+			})
+			.into(new SimpleTarget<Bitmap>() {
+				@Override
+				public void onResourceReady(Bitmap bitmap, GlideAnimation<? super Bitmap> glideAnimation) {
+
+
+
+				}
+			});
+
 		}
 		mBaiduMap.setOnMarkerClickListener(this);
 	}
