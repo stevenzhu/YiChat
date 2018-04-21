@@ -142,9 +142,6 @@ public class MsgListUI extends BaseFragmentUI implements OnItemClickListener, On
 
 	/**
 	 * 获取会话列表
-	 * 
-	 * @param context
-	 * @return
 	 */
 	private List<EMConversation> loadConversationList() {
 		// 加载所有本地群和回话

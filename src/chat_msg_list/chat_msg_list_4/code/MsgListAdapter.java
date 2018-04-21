@@ -94,7 +94,8 @@ public class MsgListAdapter extends ArrayAdapter<EMConversation> {
 			EMMessage lastMessage = conversation.getLastMessage();
 			holder.tv_item_message.setText(EaseSmileUtils.getSmiledText(getContext(), getMessageDigest(lastMessage, (this.getContext()))), BufferType.SPANNABLE);
 
-			holder.tv_item_time.setText(DateUtils.getTimestampString(new Date(lastMessage.getMsgTime())));
+			//holder.tv_item_time.setText(DateUtils.getTimestampString(new Date(lastMessage.getMsgTime())));
+			holder.tv_item_time.setText(common.util.date.DateUtils.convertDate2String(new Date(lastMessage.getMsgTime()),"HH:mm"));
 			if (lastMessage.direct() == EMMessage.Direct.SEND && lastMessage.status() == EMMessage.Status.FAIL) {
 				holder.iv_item_state.setVisibility(View.VISIBLE);
 			} else {
