@@ -122,10 +122,10 @@
 
         <ImageView
             android:id="@+id/iv_card_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="8dp"
             android:scaleType="fitXY"
             android:src="@drawable/wallet_1_icon_card" />
 
@@ -171,10 +171,10 @@
 
         <ImageView
             android:id="@+id/iv_withdrawal_list_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="8dp"
             android:scaleType="fitXY"
             android:src="@drawable/wallet_1_icon_withdrawal_list" />
 
