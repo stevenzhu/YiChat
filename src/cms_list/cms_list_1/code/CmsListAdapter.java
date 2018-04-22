@@ -306,10 +306,11 @@ public class CmsListAdapter extends BaseAdapter {
 			}
 			CmsBean cmsBean = listCmsBean.get(position);
 
-			//holder.video_view.setUp(cmsBean.getVideo(), "", cmsBean.getVideo_img());
 
 			holder.video_view.setUp(cmsBean.getVideo()
 					, JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
+//			holder.video_view.setUp("https://yiren-video.oss-cn-beijing.aliyuncs.com/test.mp4?Expires=1524369628&OSSAccessKeyId=TMP.AQHGLJEPROrrNr2ixmCHR_ZN1x5xqJFa9taV_yIY8IYYfLsmyEf9tuo7s1KuMC4CFQC7wGKTHhSoKGYdZKlBp9lHZQPYNwIVAMgrtRR1UbwakfHuYwFXVbTF9aS6&Signature=rGXNhLOiDoeP%2BMJZ4fSgy728S8E%3D"
+//					, JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
 			Glide.with(context).load(cmsBean.getVideo_img()).into(holder.video_view.thumbImageView);
 			//holder.video_view.thumbImageView.setImage(cmsBean.getVideo_img());
 			//holder.video_view.thumbImageView.setImageURI(new U);

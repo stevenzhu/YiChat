@@ -11,10 +11,13 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.Toast;
+
 import cms_launch_video.cms_launch_video_1.code.CmsLaunchVideoUI;
 
 import com.google.gson.Gson;
@@ -175,7 +178,15 @@ public class VideoChooseUI extends BaseUI implements OnItemClickListener {
 		}
 		return duration;
 	}
-
+	private float getFileSizeMB(String path) {
+		File f = new File(path);
+		if (!f.exists()) {
+			return 0.0f;
+		} else {
+			long size = f.length();
+			return (size / 1024f) / 1024f;
+		}
+	}
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
 		VideoFileBean videoFileBean = listVideoFile.get(position);
@@ -183,8 +194,19 @@ public class VideoChooseUI extends BaseUI implements OnItemClickListener {
 //		intent.putExtra("url", videoFileBean.getFilePath());
 ////		intent.putExtra(VIDEO_SCREENSHOT, mMediaObject.getOutputVideoThumbPath());
 //		startActivity(intent);
-		CmsLaunchVideoUI.toAc(this,videoFileBean.getFilePath(),false);
-		back();
+
+		//
+		float fileSize=getFileSizeMB(videoFileBean.getFilePath());
+		Log.d("--------------f",fileSize+"");
+		if(fileSize>500){
+			Toast.makeText(VideoChooseUI.this,"视频文件太大不支持上传！",Toast.LENGTH_SHORT).show();
+			return ;
+		}else{
+			CmsLaunchVideoUI.toAc(this,videoFileBean.getFilePath(),false);
+			back();
+		}
+
+
 	}
 
 	@Override

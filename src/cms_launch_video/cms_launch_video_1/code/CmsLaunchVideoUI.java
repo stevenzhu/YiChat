@@ -37,6 +37,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import VideoHandle.EpEditor;
@@ -179,6 +180,7 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
 			if(isFrom_shot){
 				sendDynamic(video_url);
 			}else {
+
 				ZUIUtil.showDlg(this, "视频处理中...");
 				clipVideo();
 			}
@@ -217,8 +219,18 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
             return (size / 1024f) / 1024f + "MB";
         }
     }
+
+	private float getFileSizeMB(String path) {
+		File f = new File(path);
+		if (!f.exists()) {
+			return 0.0f;
+		} else {
+			long size = f.length();
+			return (size / 1024f) / 1024f;
+		}
+	}
 	private void clipVideo(){
-	    //
+
         final String destPath = outputDir + File.separator + "VID_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".mp4";
         VideoCompress.compressVideoLow2(video_url, destPath, new VideoCompress.CompressListener() {
             @Override
