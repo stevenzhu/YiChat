@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/chat_list_item"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:background="#ffffff"
+  android:orientation="vertical">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    android:baselineAligned="false"
+    android:minHeight="68dp"
+    android:orientation="horizontal">
+
+
+      <ImageView
+          android:id="@+id/avatar"
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:layout_centerVertical="true"
+          android:src="@drawable/from_avatar"
+          android:layout_gravity="center"
+           />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="fill_parent"
+      android:layout_marginRight="10dp"
+      android:gravity="center_vertical"
+      android:orientation="horizontal">
+
+      <LinearLayout
+        android:layout_width="0dp"
+          android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0px"
+        android:gravity="top"
+          android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+
+          <TextView
+            android:id="@+id/nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="nickname_tv"
+            android:textColor="#666666"
+            android:textSize="17dp"
+            tools:text="duke pan"/>
+        <TextView
+            android:id="@+id/latest_messsge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center|start"
+            android:textColor="#999999"
+            android:textSize="14dp"
+            tools:text="you are handsome"
+            android:layout_marginTop="3dp"/>
+
+      </LinearLayout>
+      <TextView
+          android:id="@+id/update_time"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="top|right"
+          android:tag="update_time_tv"
+          android:textColor="#cccccc"
+          android:textSize="12dp"
+          tools:text="10:00"
+          android:layout_marginTop="10dp"
+          android:layout_gravity="top"/>
+
+    </LinearLayout>
+  </LinearLayout>
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="0.3dp"
+    android:layout_marginLeft="10dp"
+    android:background="#e6e6e6"/>
+</LinearLayout>

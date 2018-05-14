@@ -9,6 +9,9 @@ import java.util.Map;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
+import cms_list.cms_list_1.code.AttentionListUI;
+import cms_list.cms_list_1.code.CollectionListUI;
+import cms_list.cms_list_1.code.CollectionListUI;
 import user_info.user_info_1.code.UserInfoUI;
 import wallet.wallet_1.code.WalletUI;
 import about.about_2.code.AboutUI;
@@ -98,6 +101,13 @@ public class MeUI extends BaseUI {
 		// 我的钱包
 		RelativeLayout z_wallet = (RelativeLayout) me_content.findViewById(R.id.z_wallet);
 		z_wallet.setOnClickListener(this);
+//我的关注
+		RelativeLayout z_attention_collection = (RelativeLayout) me_content.findViewById(R.id.z_attention_collection);
+//我的关注
+		RelativeLayout z_collection = (RelativeLayout) me_content.findViewById(R.id.z_collection);
+		z_attention_collection.setOnClickListener(this);
+		z_collection.setOnClickListener(this);
+
 		// 意见反馈
 		RelativeLayout z_feedback = (RelativeLayout) me_content.findViewById(R.id.z_feedback);
 		z_feedback.setOnClickListener(this);
@@ -202,6 +212,12 @@ public class MeUI extends BaseUI {
 				mDialog.dismiss();
 			}
 			break;
+			case R.id.z_attention_collection:
+				startActivity(new Intent(this, AttentionListUI.class));
+				break;
+			case R.id.z_collection:
+				startActivity(new Intent(this, CollectionListUI.class));
+				break;
 		default:
 			break;
 		}

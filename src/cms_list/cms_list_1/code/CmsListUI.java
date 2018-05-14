@@ -10,7 +10,12 @@ import org.json.JSONObject;
 
 import video_choose.video_choose_1.code.VideoChooseUI;
 import video_record.video_record_1.code.VideoRecordUI;
+
+import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -26,6 +31,7 @@ import cms_launch.cms_launch_1.code.CmsLaunchUI;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.hyphenate.easeui.db.InviteMessgeDao;
 import com.hyphenate.easeui.utils.Constant;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.shorigo.BaseUI;
@@ -34,6 +40,7 @@ import com.shorigo.http.HttpUtil;
 import com.shorigo.utils.ACache;
 import com.shorigo.utils.MyConfig;
 import com.shorigo.view.MyListView;
+import com.shorigo.view.badgeview.QBadgeView;
 import com.shorigo.view.refresh.PullRefreshUtil;
 import com.shorigo.view.refresh.PullRefreshView;
 import com.shorigo.view.refresh.PullRefreshView.OnPullListener;
@@ -51,7 +58,7 @@ public class CmsListUI extends BaseUI implements OnPullListener, OnItemClickList
 	private PullRefreshView refresh_view;
 	private int currertPage; // 当前页数
 	private boolean isRef; // 是否刷新
-
+    private int pageShowSize=15;
 	private List<CmsBean> listCmsBean;
 	private MyListView lv_list;
 	private CmsListAdapter adapter;
@@ -59,10 +66,32 @@ public class CmsListUI extends BaseUI implements OnPullListener, OnItemClickList
 	private Gson gson;
 
 	private String type;// 2热门 1最新
+	private MyBroadcastReceiver myBroadcastReceiver;
 
+	class MyBroadcastReceiver extends BroadcastReceiver{
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			if(intent.getAction().equals("upload.video.success")){
+				isRef=true;
+				currertPage=1;
+				getCmslist();
+			}else if(intent.getAction().equals("update.comment.count")){
+				isRef=true;
+				currertPage=1;
+				getCmslist();
+			}
+		}
+	}
 	@Override
 	protected void loadViewLayout() {
 		setContentView(R.layout.cms_list_1);
+		//注册广播
+		myBroadcastReceiver=new MyBroadcastReceiver();
+		IntentFilter intentFilter=new IntentFilter();
+		intentFilter.addAction("upload.video.success");
+		intentFilter.addAction("update.comment.count");
+		registerReceiver(myBroadcastReceiver,intentFilter);
 	}
 
 	@Override
@@ -100,7 +129,7 @@ public class CmsListUI extends BaseUI implements OnPullListener, OnItemClickList
 		}.getType();
 		listCmsBean = gson.fromJson(ACache.get(this).getAsString("cms_list_1_" + type), listCmsTemp);
 
-		adapter = new CmsListAdapter(this, listCmsBean, mHandler);
+		adapter = new CmsListAdapter(this, listCmsBean, mHandler,type);
 		lv_list.setAdapter(adapter);
 
 		getCmslist();
@@ -152,7 +181,7 @@ public class CmsListUI extends BaseUI implements OnPullListener, OnItemClickList
 		map.put("access_token", MyConfig.getToken(this));
 		map.put("type", type);
 		map.put("p", String.valueOf(currertPage));
-		map.put("num", "15");
+		map.put("num", pageShowSize+"");
 		HttpUtil.post(this, url, map, new JsonHttpResponseHandler() {
 
 			@Override
@@ -176,7 +205,7 @@ public class CmsListUI extends BaseUI implements OnPullListener, OnItemClickList
 						listCmsBean.addAll(listTemp);
 					}
 
-					adapter.setData(listCmsBean);
+					adapter.setData(listCmsBean,type);
 				}
 				if (refresh_view != null) {
 					refresh_view.refreshFinish();
@@ -209,7 +238,7 @@ public class CmsListUI extends BaseUI implements OnPullListener, OnItemClickList
 				RequestReturnBean returnBean = CmsListJson.delCms(response.toString());
 				if (HttpUtil.isSuccess(CmsListUI.this, returnBean.getCode())) {
 					listCmsBean.remove(position);
-					adapter.setData(listCmsBean);
+					adapter.setData(listCmsBean,type);
 				}
 			}
 
@@ -288,6 +317,7 @@ public class CmsListUI extends BaseUI implements OnPullListener, OnItemClickList
 		isRef = false;
 		getCmslist();
 	}
+
 
 	@Override
 	protected void back() {

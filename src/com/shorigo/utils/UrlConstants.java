@@ -14,12 +14,15 @@ import yichat.util.ZUtil;
 public class UrlConstants {
 
 	/** 服务器url */
-//	public static String SERVICE_HOST_URL_TEXT = "http://192.168.1.66:8883";
-//	public static String SERVICE_HOST_URL = "http://api.buwaibao.com:8883";
-	public static String SERVICE_HOST_URL = ""; //http://localhost";
-	static{
-		if(!ZUtil.isDebugMode() || TextUtils.isEmpty(SERVICE_HOST_URL)){
-			SERVICE_HOST_URL = "http://59.110.225.146";
-		}
-	}
+	public static String SERVICE_HOST_URL = "http://api.yirenquanzi.com";
+	//public static String SERVICE_HOST_URL = "http://api.test.yirenquanzi.com";
+	//public static String SERVICE_HOST_URL = "http://59.110.225.146";
+
+
+	// http://59.110.225.146;
+//	static{
+//		if(!ZUtil.isDebugMode() || TextUtils.isEmpty(SERVICE_HOST_URL)){
+//			SERVICE_HOST_URL = "http://59.110.225.146";
+//		}
+//	}
 }

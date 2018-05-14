@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import register.register_2.code.RegisterUI;
 import user_info.user_info_1.code.UserInfoUI;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -145,6 +146,7 @@ public class LoginUI extends BaseUI {
 
 			@Override
 			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				Log.d("00",statusCode+"-"+errorResponse);
 				super.onFailure(statusCode, headers, throwable, errorResponse);
 			}
 		});

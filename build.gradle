@@ -27,6 +27,7 @@ dependencies {
     implementation 'com.aitangba:swipeback:1.0.2'
     implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.aliyun.dpa:oss-android-sdk:+'
     //compile 'cjt.library.wheel:camera:1.1.9'
 }
 
@@ -90,7 +91,7 @@ android {
      dexOptions {
      	preDexLibraries = false
      	dexOptions {
-        	javaMaxHeapSize "2g"
+        	javaMaxHeapSize "4g"
     	}
      }
 

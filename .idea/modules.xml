@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EaseUI/EaseUI.iml" filepath="$PROJECT_DIR$/EaseUI/EaseUI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/YiChat.iml" filepath="$PROJECT_DIR$/YiChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YiChat3.iml" filepath="$PROJECT_DIR$/YiChat3.iml" />
       <module fileurl="file://$PROJECT_DIR$/joevideolib/joevideolib.iml" filepath="$PROJECT_DIR$/joevideolib/joevideolib.iml" />
     </modules>
   </component>

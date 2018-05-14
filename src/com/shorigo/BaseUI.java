@@ -29,7 +29,7 @@ import yichat.util.StatusBarCompat;
  * @author peidongxu
  * 
  */
-public abstract class BaseUI extends SwipeBackActivity implements OnClickListener {
+public abstract class BaseUI extends  SwipeBackActivity implements OnClickListener {
 	// 退出时间间隔
 	private long exitTime = 0;
 	private String isExit = "0";

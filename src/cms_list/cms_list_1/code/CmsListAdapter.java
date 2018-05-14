@@ -39,16 +39,18 @@ public class CmsListAdapter extends BaseAdapter {
 	private int currentType;// 当前item类型
 	private String user_id;
 	private Handler mHandler;
-
-	public CmsListAdapter(Context context, List<CmsBean> listCmsBean, Handler mHandler) {
+    private String type;
+	public CmsListAdapter(Context context, List<CmsBean> listCmsBean, Handler mHandler,String type) {
 		this.context = context;
 		this.listCmsBean = listCmsBean;
 		this.mHandler = mHandler;
 		user_id = MyConfig.getUserInfo(context).get("user_id");
+		this.type=type;
 	}
 
-	public void setData(List<CmsBean> listCmsBean) {
+	public void setData(List<CmsBean> listCmsBean,String type) {
 		this.listCmsBean = listCmsBean;
+		this.type=type;
 		notifyDataSetChanged();
 	}
 
@@ -110,13 +112,14 @@ public class CmsListAdapter extends BaseAdapter {
 				holder.tv_item_comment_num = (TextView) view_1.findViewById(R.id.tv_item_comment_num);
 				holder.tv_item_time = (TextView) view_1.findViewById(R.id.tv_item_time);
 				holder.tv_item_del = (TextView) view_1.findViewById(R.id.tv_item_del);
+				holder.tv_item_top=(TextView)view_1.findViewById(R.id.tv_item_top);
 				view_1.setTag(holder);
 				convertView = view_1;
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
 			CmsBean cmsBean = listCmsBean.get(position);
-
+			setTop(cmsBean,holder.tv_item_top);
 			List<String> listImg = cmsBean.getListImg();
 			if (listImg != null && listImg.size() > 0) {
 				BitmapHelp.loadImg(context, holder.iv_item_img, listImg.get(0), R.drawable.default_img);
@@ -169,6 +172,7 @@ public class CmsListAdapter extends BaseAdapter {
 				holder.tv_item_comment_num = (TextView) view_2.findViewById(R.id.tv_item_comment_num);
 				holder.tv_item_time = (TextView) view_2.findViewById(R.id.tv_item_time);
 				holder.tv_item_del = (TextView) view_2.findViewById(R.id.tv_item_del);
+				holder.tv_item_top=(TextView)view_2.findViewById(R.id.tv_item_top);
 				view_2.setTag(holder);
 				convertView = view_2;
 			} else {
@@ -176,7 +180,7 @@ public class CmsListAdapter extends BaseAdapter {
 			}
 
 			final CmsBean cmsBean = listCmsBean.get(position);
-
+			setTop(cmsBean,holder.tv_item_top);
 			List<String> list_img = cmsBean.getListImg();
 			if (list_img != null && list_img.size() > 0) {
 				holder.multiImagView.setVisibility(View.VISIBLE);
@@ -239,13 +243,14 @@ public class CmsListAdapter extends BaseAdapter {
 				holder.tv_item_comment_num = (TextView) view_3.findViewById(R.id.tv_item_comment_num);
 				holder.tv_item_time = (TextView) view_3.findViewById(R.id.tv_item_time);
 				holder.tv_item_del = (TextView) view_3.findViewById(R.id.tv_item_del);
+				holder.tv_item_top=(TextView)view_3.findViewById(R.id.tv_item_top);
 				view_3.setTag(holder);
 				convertView = view_3;
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
 			CmsBean cmsBean = listCmsBean.get(position);
-
+			setTop(cmsBean,holder.tv_item_top);
 			List<Map<String, String>> listImgMap = cmsBean.getListImgMap();
 			if (listImgMap != null && listImgMap.size() > 0) {
 				holder.tv_item_img_num.setText(listImgMap.size() + "图");
@@ -299,6 +304,7 @@ public class CmsListAdapter extends BaseAdapter {
 				holder.tv_item_comment_num = (TextView) view_4.findViewById(R.id.tv_item_comment_num);
 				holder.tv_item_time = (TextView) view_4.findViewById(R.id.tv_item_time);
 				holder.tv_item_del = (TextView) view_4.findViewById(R.id.tv_item_del);
+				holder.tv_item_top=(TextView)view_4.findViewById(R.id.tv_item_top);
 				view_4.setTag(holder);
 				convertView = view_4;
 			} else {
@@ -306,7 +312,7 @@ public class CmsListAdapter extends BaseAdapter {
 			}
 			CmsBean cmsBean = listCmsBean.get(position);
 
-
+			setTop(cmsBean,holder.tv_item_top);
 			holder.video_view.setUp(cmsBean.getVideo()
 					, JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "");
 //			holder.video_view.setUp("https://yiren-video.oss-cn-beijing.aliyuncs.com/test.mp4?Expires=1524369628&OSSAccessKeyId=TMP.AQHGLJEPROrrNr2ixmCHR_ZN1x5xqJFa9taV_yIY8IYYfLsmyEf9tuo7s1KuMC4CFQC7wGKTHhSoKGYdZKlBp9lHZQPYNwIVAMgrtRR1UbwakfHuYwFXVbTF9aS6&Signature=rGXNhLOiDoeP%2BMJZ4fSgy728S8E%3D"
@@ -365,5 +371,31 @@ public class CmsListAdapter extends BaseAdapter {
 		TextView tv_item_comment_num;
 		TextView tv_item_time;
 		TextView tv_item_del;
+		TextView tv_item_top;
+	}
+
+	public void setTop(CmsBean cmsBean,TextView tv_item_top){
+		if("2".equals(type)){
+			//最热，
+			if("10".equals(cmsBean.getTop())){
+				tv_item_top.setVisibility(View.VISIBLE);
+			}else{
+				tv_item_top.setVisibility(View.GONE);
+			}
+		}else if("1".equals(type)){
+			//最新，
+			if("5".equals(cmsBean.getTop())){
+				tv_item_top.setVisibility(View.VISIBLE);
+			}else{
+				tv_item_top.setVisibility(View.GONE);
+			}
+		}else if("3".equals(type)) {
+			//同城，
+			if ("15".equals(cmsBean.getTop())) {
+				tv_item_top.setVisibility(View.VISIBLE);
+			} else {
+				tv_item_top.setVisibility(View.GONE);
+			}
+		}
 	}
 }

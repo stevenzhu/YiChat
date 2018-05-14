@@ -10,6 +10,7 @@ import org.apache.http.Header;
 import org.json.JSONObject;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.net.http.SslError;
 import android.os.Build;
@@ -26,11 +27,15 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import bean.CmsBean;
 import bean.CmsCommentBean;
 import bean.RequestReturnBean;
+import utils.ActionSheetDialog;
 import yichat.util.ZUIUtil;
 import yichat.util.ZUtil;
 
@@ -66,6 +71,7 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 	private Gson gson;
 	// 文章ID
 	private String id;
+	private String userId;
 	private CmsBean cmsBean;
 
 	// 标题
@@ -110,6 +116,28 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 	private DialogUtil dialogUtil;
 	private LinearLayout grpTags;
 
+	private Button btn_more_pre;
+    private boolean isAttention=false;
+    private boolean isCollection=false;
+	public void actionSheetListFilter(Context context, ActionSheetDialog.OnSheetItemClickListener onSheetItemClickListener){
+		ActionSheetDialog actionSheetDialog=new ActionSheetDialog(context)
+				.builder()
+				.setCancelable(false)
+				.setCanceledOnTouchOutside(true);
+		if(isAttention){
+			actionSheetDialog.addSheetItem("取消关注", ActionSheetDialog.SheetItemColor.Red, onSheetItemClickListener);
+		}else{
+			actionSheetDialog.addSheetItem("我要关注", ActionSheetDialog.SheetItemColor.Green, onSheetItemClickListener);
+		}
+
+		if(isCollection){
+			actionSheetDialog.addSheetItem("取消收藏", ActionSheetDialog.SheetItemColor.Red, onSheetItemClickListener);
+		}else{
+			actionSheetDialog.addSheetItem("我要收藏", ActionSheetDialog.SheetItemColor.Green, onSheetItemClickListener);
+		}
+
+		actionSheetDialog.show();
+	}
 	@Override
 	protected void loadViewLayout() {
 		setContentView(R.layout.cms_detail_1);
@@ -117,6 +145,112 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 
 	@Override
 	protected void findView_AddListener() {
+		btn_more_pre = (Button) findViewById(R.id.btn_more_pre);
+		btn_more_pre.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+             actionSheetListFilter(CmsDetailUI.this, new ActionSheetDialog.OnSheetItemClickListener() {
+				 @Override
+				 public void onClick(int which) {
+				 	//Toast.makeText(CmsDetailUI.this,""+which,Toast.LENGTH_SHORT).show();
+					 switch (which) {
+						 case 2:
+                             if(isCollection){
+                             	//取消收藏
+								 String url = HttpUtil.getUrl("/user/cancelDynamicCollect");
+								 Map<String, String> map = new HashMap<String, String>();
+								 map.put("access_token", MyConfig.getToken(CmsDetailUI.this));
+								 map.put("did", id);
+								 HttpUtil.post(CmsDetailUI.this, url, map, new JsonHttpResponseHandler() {
+									 @Override
+									 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+										 super.onSuccess(statusCode, headers, response);
+										 Toast.makeText(CmsDetailUI.this,"已取消收藏",Toast.LENGTH_SHORT).show();
+										 isCollection=false;
+									 }
+
+									 @Override
+									 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+										 super.onFailure(statusCode, headers, throwable, errorResponse);
+										 Toast.makeText(CmsDetailUI.this,"取消收藏失败",Toast.LENGTH_SHORT).show();
+
+									 }
+								 });
+							 }else{
+                             	//收藏
+								 String url = HttpUtil.getUrl("/user/addDynamicCollect");
+								 Map<String, String> map = new HashMap<String, String>();
+								 map.put("access_token", MyConfig.getToken(CmsDetailUI.this));
+								 map.put("did", id);
+								 HttpUtil.post(CmsDetailUI.this, url, map, new JsonHttpResponseHandler() {
+									 @Override
+									 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+										 super.onSuccess(statusCode, headers, response);
+										 Toast.makeText(CmsDetailUI.this,"收藏成功",Toast.LENGTH_SHORT).show();
+										 isCollection=true;
+									 }
+
+									 @Override
+									 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+										 super.onFailure(statusCode, headers, throwable, errorResponse);
+										 Toast.makeText(CmsDetailUI.this,"收藏失败",Toast.LENGTH_SHORT).show();
+
+									 }
+								 });
+							 }
+							 break;
+						 case 1:
+                             if(isAttention){
+                             	//取消关注
+
+								 String url = HttpUtil.getUrl("/user/cancelConcern");
+								 Map<String, String> map = new HashMap<String, String>();
+								 map.put("access_token", MyConfig.getToken(CmsDetailUI.this));
+								 map.put("to_user_id", userId);
+								 HttpUtil.post(CmsDetailUI.this, url, map, new JsonHttpResponseHandler() {
+									 @Override
+									 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+										 super.onSuccess(statusCode, headers, response);
+										 Toast.makeText(CmsDetailUI.this,"已取消关注",Toast.LENGTH_SHORT).show();
+										 isAttention=false;
+									 }
+
+									 @Override
+									 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+										 super.onFailure(statusCode, headers, throwable, errorResponse);
+										 Toast.makeText(CmsDetailUI.this,"取消关注失败",Toast.LENGTH_SHORT).show();
+
+									 }
+								 });
+							 }else{
+                             	//关注
+								 String url = HttpUtil.getUrl("/user/addConcern");
+								 Map<String, String> map = new HashMap<String, String>();
+								 map.put("access_token", MyConfig.getToken(CmsDetailUI.this));
+								 map.put("to_user_id", userId);
+								 HttpUtil.post(CmsDetailUI.this, url, map, new JsonHttpResponseHandler() {
+									 @Override
+									 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+										 super.onSuccess(statusCode, headers, response);
+										 Toast.makeText(CmsDetailUI.this,"关注成功",Toast.LENGTH_SHORT).show();
+                                          isAttention=true;
+									 }
+
+									 @Override
+									 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+										 super.onFailure(statusCode, headers, throwable, errorResponse);
+										 Toast.makeText(CmsDetailUI.this,"关注失败",Toast.LENGTH_SHORT).show();
+
+									 }
+								 });
+							 }
+						 	break;
+					 }
+				 }
+			 });
+			}
+		});
+
 		inputMenu = (EaseChatInputMenu) findViewById(R.id.input_menu);
 		inputMenu.init(null);
 		inputMenu.setChatInputMenuListener(new ChatInputMenuListener() {
@@ -217,6 +351,7 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 				RequestReturnBean returnBean = CmsDetailJson.getCmsDetail(response.toString());
 				if (HttpUtil.isSuccess(CmsDetailUI.this, returnBean.getCode())) {
 					cmsBean = (CmsBean) returnBean.getObject();
+					userId=cmsBean.getUser_id();
 					setValue();
 					// 数据缓存
 					String json = gson.toJson(cmsBean);
@@ -346,6 +481,8 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 				RequestReturnBean returnBean = CmsDetailJson.action(response.toString());
 				if (HttpUtil.isSuccess(CmsDetailUI.this, returnBean.getCode())) {
 					getCmsComment();
+					getCmsDetail();
+					sendBroadcast(new Intent("update.comment.count"));
 				}
 			}
 
@@ -372,6 +509,8 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 				RequestReturnBean returnBean = CmsDetailJson.action(response.toString());
 				if (HttpUtil.isSuccess(CmsDetailUI.this, returnBean.getCode())) {
 					getCmsComment();
+					getCmsDetail();
+					sendBroadcast(new Intent("update.comment.count"));
 				}
 			}
 
@@ -446,6 +585,8 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 				if (HttpUtil.isSuccess(CmsDetailUI.this, returnBean.getCode())) {
 					listCommentBean.remove(position);
 					adapter.setData(listCommentBean);
+					getCmsDetail();
+					sendBroadcast(new Intent("update.comment.count"));
 				}
 			}
 
@@ -456,6 +597,7 @@ public class CmsDetailUI extends BaseUI implements DialogClickCallBack {
 		});
 	}
 
+	public void commentCount(){}
 	/**
 	 * 页面赋值
 	 */

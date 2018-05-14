@@ -340,8 +340,8 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 					RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(106, 106);
 					mImageView.setLayoutParams(params);
 					r.addView(mImageView);
-					market_boy=BitmapDescriptorFactory.fromView(r);
-					initMapMarker(listMap.get(position), market_boy);
+					BitmapDescriptor market=BitmapDescriptorFactory.fromView(r);
+					initMapMarker(listMap.get(position), market);
 
 					return false;
 				}

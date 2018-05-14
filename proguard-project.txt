@@ -21,3 +21,5 @@
 
 #-keep class com.github.mmin18.methodpool1.** { *; }
 #-keep class com.github.mmin18.methodpool2.** { *; }
+-keep class com.baidu.**{*;}
+-keep class vi.com.gdi.bgl.**{*;}

@@ -47,6 +47,84 @@
     <View style="@style/view_horizontal_line_grey" />
 
     <RelativeLayout
+        android:id="@+id/z_attention_collection"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_attention_collection"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/attention_collection" />
+
+        <TextView
+            android:id="@+id/tv_attention_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/iv_attention_collection"
+            android:text="我的关注"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_attention_collection2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_arrow_right_grey" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
+        android:id="@+id/z_collection"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_ffffff"
+        android:paddingLeft="12dp"
+        android:paddingRight="15dp" >
+
+        <ImageView
+            android:id="@+id/iv_collection"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_me_collection" />
+
+        <TextView
+            android:id="@+id/tv_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_collection"
+            android:text="我的收藏"
+            android:textColor="@color/text_555555"
+            android:textSize="@dimen/text_size14" />
+
+        <ImageView
+            android:id="@+id/iv_collection2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_arrow_right_grey" />
+    </RelativeLayout>
+
+    <View style="@style/view_horizontal_line_grey" />
+
+    <RelativeLayout
         android:id="@+id/z_feedback"
         android:layout_width="match_parent"
         android:layout_height="50dp"

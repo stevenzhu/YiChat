@@ -40,6 +40,9 @@ public class CmsDetailJson {
 				if (object.has("id")) {
 					cmsBean.setId(object.getString("id"));
 				}
+				if(object.has("user_id")){
+					cmsBean.setUser_id(object.getString("user_id"));
+				}
 				if (object.has("title")) {
 					cmsBean.setTitle(object.getString("title"));
 				}

@@ -20,8 +20,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <!-- 友盟 start -->
 
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 友盟 start -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <!-- 环信 start -->
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -305,6 +307,13 @@
             android:name="main.main_1.code.MainUI"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"/>
+
+        <activity
+            android:name="cms_list.cms_list_1.code.CollectionListUI"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="cms_list.cms_list_1.code.AttentionListUI"
+            android:screenOrientation="portrait" />
         <activity
             android:name="cms_list.cms_list_1.code.CmsListUI"
             android:screenOrientation="portrait" />

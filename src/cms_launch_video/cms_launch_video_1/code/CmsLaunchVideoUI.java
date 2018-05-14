@@ -45,10 +45,18 @@ import VideoHandle.EpVideo;
 import VideoHandle.OnEditorListener;
 import bean.RequestReturnBean;
 import silicompressorr.VideoCompress;
+import utils.FileUtil;
 import yichat.util.ZFileMnger;
 import yichat.util.ZToast;
 import yichat.util.ZUIUtil;
 
+import com.alibaba.sdk.android.oss.ClientException;
+import com.alibaba.sdk.android.oss.ServiceException;
+import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback;
+import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
+import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
+import com.alibaba.sdk.android.oss.model.PutObjectRequest;
+import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestHandle;
 import com.loopj.android.http.RequestParams;
@@ -311,40 +319,88 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
 	 */
 	private void sendDynamic(String videoPath) {
 		if(hasDestroy){return;}
-		ZUIUtil.showDlg(CmsLaunchVideoUI.this,"上传中...");
-		String url = HttpUtil.getUrl("/dynamic/send");
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("access_token", MyConfig.getToken(this));
-		map.put("title", title);
-		map.put("content", content);
-		RequestParams params = new RequestParams();
-		try {
-//			video_url
-			params.put("video", new File(videoPath));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		req=HttpUtil.post(this, url, map, params, new JsonHttpResponseHandler() {
-			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-				super.onSuccess(statusCode, headers, response);
-				RequestReturnBean returnBean = CmsLaunchVideoJson.analysis(response.toString());
-//				progressDialog.dismiss();
-				ZUIUtil.finishDlg();
-				if (HttpUtil.isSuccess(CmsLaunchVideoUI.this, returnBean.getCode())) {
-					back();
-				}
-			}
 
+		upload(videoPath);
+//		ZUIUtil.showDlg(CmsLaunchVideoUI.this,"上传中...");
+//		String url = HttpUtil.getUrl("/dynamic/send");
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put("access_token", MyConfig.getToken(this));
+//		map.put("title", title);
+//		map.put("content", content);
+//		RequestParams params = new RequestParams();
+//		try {
+////			video_url
+//			params.put("video", new File(videoPath));
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		}
+//		req=HttpUtil.post(this, url, map, params, new JsonHttpResponseHandler() {
+//			@Override
+//			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+//				super.onSuccess(statusCode, headers, response);
+//				RequestReturnBean returnBean = CmsLaunchVideoJson.analysis(response.toString());
+////				progressDialog.dismiss();
+//				ZUIUtil.finishDlg();
+//				if (HttpUtil.isSuccess(CmsLaunchVideoUI.this, returnBean.getCode())) {
+//					//发送广播
+//					Intent intent =new Intent();
+//					intent.setAction("upload.video.success");
+//					sendBroadcast(intent);
+//					back();
+//				}
+//			}
+//
+//			@Override
+//			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+//				super.onFailure(statusCode, headers, throwable, errorResponse);
+////				progressDialog.dismiss();
+//				ZUIUtil.finishDlg();
+//			}
+//		});
+	}
+    public void upload(String videoPath){
+        String fileName= FileUtil.getFileName(new File(videoPath));
+		// Construct an upload request
+		PutObjectRequest put = new PutObjectRequest("yiren-video", fileName, videoPath);
+
+// You can set progress callback during asynchronous upload
+		put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {
 			@Override
-			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-				super.onFailure(statusCode, headers, throwable, errorResponse);
-//				progressDialog.dismiss();
-				ZUIUtil.finishDlg();
+			public void onProgress(PutObjectRequest request, long currentSize, long totalSize) {
+				Log.d("-------------PutObject", "currentSize: " + currentSize + " totalSize: " + totalSize);
 			}
 		});
-	}
 
+		OSSAsyncTask task = MyApplication.getOssInstance().asyncPutObject(put, new OSSCompletedCallback<PutObjectRequest, PutObjectResult>() {
+			@Override
+			public void onSuccess(PutObjectRequest request, PutObjectResult result) {
+				Log.d("------------PutObject", "UploadSuccess");
+				Log.d("------------PutObject", "1#"+result.getServerCallbackReturnBody());
+				Log.d("------------PutObject", "2#"+result.getETag());
+				Log.d("------------PutObject", "3#"+request.getBucketName());
+				Log.d("------------PutObject", "4#"+request.getObjectKey());
+				Log.d("------------PutObject", "5#"+request.getUploadFilePath());
+			}
+
+			@Override
+			public void onFailure(PutObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
+				// Request exception
+				if (clientExcepion != null) {
+					// Local exception, such as a network exception
+					clientExcepion.printStackTrace();
+				}
+				if (serviceException != null) {
+					// Service exception
+					Log.e("ErrorCode", serviceException.getErrorCode());
+					Log.e("RequestId", serviceException.getRequestId());
+					Log.e("HostId", serviceException.getHostId());
+					Log.e("RawMessage", serviceException.getRawMessage());
+				}
+			}
+		});
+
+
+	}
 	/**
 	 * 获取表情的gridview的子view
 	 * 

@@ -52,6 +52,9 @@ public class CmsListJson {
 					if (object.has("comment_num")) {
 						cmsBean.setComment_num(object.getString("comment_num"));
 					}
+					if(object.has("top")){
+						cmsBean.setTop(object.getString("top"));
+					}
 					if (object.has("video")) {
 						String video = object.getString("video");
 						if (!Utils.isEmity(video)) {

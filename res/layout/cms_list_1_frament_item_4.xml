@@ -68,7 +68,15 @@
             android:text="1分钟前"
             android:textColor="@color/text_8b8b8b"
             android:textSize="@dimen/text_size12" />
-
+        <TextView
+            android:id="@+id/tv_item_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="置顶"
+            android:textColor="@color/text_orange"
+            android:textSize="@dimen/text_size12"
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/tv_item_del"
             android:layout_width="wrap_content"

@@ -100,16 +100,38 @@
             </ScrollView>
 
             <View style="@style/view_horizontal_line_grey" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="精彩评论"
-                android:textColor="@color/text_555555"
-                android:textSize="@dimen/text_size14" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="精彩评论"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+
+                <TextView
+                    android:id="@+id/tv_comment_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/bg_dialog"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="0条评论"
+                    android:textColor="@color/text_555555"
+                    android:textSize="@dimen/text_size14" />
+            </LinearLayout>
+
 
             <View style="@style/view_horizontal_line_grey" />
 
@@ -143,20 +165,16 @@
                 android:src="@drawable/icon_back_white" />
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_comment_num"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+        <Button
+            android:id="@+id/btn_more_pre"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/bg_dialog"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/more_opre"
             android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="0条评论"
-            android:textColor="@color/text_555555"
-            android:textSize="@dimen/text_size14" />
+            />
     </RelativeLayout>
 
     <com.shorigo.view.input.EaseChatInputMenu

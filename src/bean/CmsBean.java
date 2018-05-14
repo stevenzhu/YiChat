@@ -15,6 +15,8 @@ public class CmsBean implements Serializable {
 	private String type;// 新闻类型：1: 单图文章2：多图文章3：组图4：视频
 	private String video;// 视频文件地址
 	private String video_img;// 视频封面图
+	private String user_id;
+	private String top;
 	private List<String> listImg;// 列表缩略图地址
 	private List<Map<String, String>> listImgMap;// 组图
 	private String source;// 来源
@@ -22,8 +24,35 @@ public class CmsBean implements Serializable {
 	private String comment_num;// 评论数
 	private String add_time;// 发布时间
 	private Map<String, String> userMap;
-
 	public String tag;
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+
+	public String getTop() {
+		return top;
+	}
+
+	public void setTop(String top) {
+		this.top = top;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+
+
 
 	public String[] getTags(){
 		if(TextUtils.isEmpty(tag)){
