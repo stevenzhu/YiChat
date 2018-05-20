@@ -160,7 +160,7 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 		// MyLocationConfiguration(mCurrentMode, true, null));
 
 		// 初始化定位
-		mLocClient = new LocationClient(getApplicationContext());
+		mLocClient = new LocationClient(MainUI.this);
 		// 注册定位监听
 		mLocClient.registerLocationListener(this);
 		setLocationOption();
@@ -181,7 +181,7 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 	protected void onResume() {
 		mMapView.onResume();
 		super.onResume();
-		//getNearList();
+		getNearList();
 		refresh();
 	}
 
@@ -246,6 +246,9 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 	 * 获取附近列表
 	 */
 	private void getNearList() {
+		if(locationLatLng==null||locationLatLng.latitude<0||locationLatLng.longitude<0){
+			return;
+		}
 		String url = HttpUtil.getUrl("/user/getUsersByLbs");
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("access_token", MyConfig.getToken(this));
@@ -420,7 +423,7 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 		mBaiduMap.setMyLocationData(data);
 
 		// 是否是第一次定位
-		if (isFirstLoc) {
+		//if (isFirstLoc) {
 			isFirstLoc = false;
 			LatLng ll = new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude());
 			MapStatusUpdate msu = MapStatusUpdateFactory.newLatLngZoom(ll, 17);
@@ -434,7 +437,7 @@ public class MainUI extends BaseUI implements BDLocationListener, OnMarkerClickL
 
 			// 获取附近
 			getNearList();
-		}
+		//}
 	}
 
 	MapPersonalPop mapPersonalPop;

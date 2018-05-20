@@ -33,6 +33,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
@@ -46,6 +47,7 @@ import VideoHandle.OnEditorListener;
 import bean.RequestReturnBean;
 import silicompressorr.VideoCompress;
 import utils.FileUtil;
+import utils.MD5;
 import yichat.util.ZFileMnger;
 import yichat.util.ZToast;
 import yichat.util.ZUIUtil;
@@ -54,7 +56,10 @@ import com.alibaba.sdk.android.oss.ClientException;
 import com.alibaba.sdk.android.oss.ServiceException;
 import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback;
 import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
+import com.alibaba.sdk.android.oss.common.utils.BinaryUtil;
+import com.alibaba.sdk.android.oss.common.utils.OSSUtils;
 import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
+import com.alibaba.sdk.android.oss.model.ObjectMetadata;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -68,6 +73,8 @@ import com.shorigo.utils.MyConfig;
 import com.shorigo.utils.Utils;
 import com.shorigo.view.MyGridView;
 import com.shorigo.yichat.R;
+
+import static com.umeng.socialize.utils.DeviceConfig.context;
 
 /**
  * 发布视频
@@ -184,14 +191,18 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
 //			progressDialog.setMessage("正在提交中...");
 //			progressDialog.show();
 //			sendDynamic();
-			//debug
-			if(isFrom_shot){
-				sendDynamic(video_url);
-			}else {
 
-				ZUIUtil.showDlg(this, "视频处理中...");
-				clipVideo();
-			}
+			//debug
+//			if(isFrom_shot){
+//				sendDynamic(video_url,title,content);
+//			}else {
+//
+//				ZUIUtil.showDlg(this, "视频处理中...");
+//				clipVideo();
+//			}
+			ZUIUtil.showDlg(this, "视频上传中...请耐心等待...");
+			sendDynamic(video_url,title,content);
+
 			break;
 		case R.id.iv_biaoqing:
 			// 表情
@@ -238,44 +249,44 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
 		}
 	}
 	private void clipVideo(){
-
-        final String destPath = outputDir + File.separator + "VID_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".mp4";
-        VideoCompress.compressVideoLow2(video_url, destPath, new VideoCompress.CompressListener() {
-            @Override
-            public void onStart() {
-                startTime = System.currentTimeMillis();
-                setTime(startTime,"开始时间");
-                Log.i("--------------","压缩前大小 = "+getFileSize(video_url));
-            }
-
-            @Override
-            public void onSuccess() {
-                endTime = System.currentTimeMillis();
-                setTime(endTime,"结束时间");
-                Log.i("--------------","压缩后大小 = "+getFileSize(destPath));
-
-                runOnUiThread(new Runnable() {
-                    //					@Override
-					public void run() {
-						ZUIUtil.finishDlg();
-						sendDynamic(destPath);
-					}
-				});
-
-            }
-
-            @Override
-            public void onFail() {
-                endTime = System.currentTimeMillis();
-                setTime(endTime,"失败时间");
-            }
-
-            @Override
-            public void onProgress(float percent) {
-                Log.i("------",String.valueOf(percent) + "%");
-                //ZUIUtil.showDlg(CmsLaunchVideoUI.this, "视频压缩中.."+String.valueOf(percent) + "%");
-            }
-        });
+		upload(video_url,title,content);
+//        final String destPath = outputDir + File.separator + "VID_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".mp4";
+//        VideoCompress.compressVideoLow2(video_url, destPath, new VideoCompress.CompressListener() {
+//            @Override
+//            public void onStart() {
+//                startTime = System.currentTimeMillis();
+//                setTime(startTime,"开始时间");
+//                Log.i("--------------","压缩前大小 = "+getFileSize(video_url));
+//            }
+//
+//            @Override
+//            public void onSuccess() {
+//                endTime = System.currentTimeMillis();
+//                setTime(endTime,"结束时间");
+//                Log.i("--------------","压缩后大小 = "+getFileSize(destPath));
+//
+//                runOnUiThread(new Runnable() {
+//                    //					@Override
+//					public void run() {
+//						ZUIUtil.finishDlg();
+//						sendDynamic(destPath,title,content);
+//					}
+//				});
+//
+//            }
+//
+//            @Override
+//            public void onFail() {
+//                endTime = System.currentTimeMillis();
+//                setTime(endTime,"失败时间");
+//            }
+//
+//            @Override
+//            public void onProgress(float percent) {
+//                Log.i("------",String.valueOf(percent) + "%");
+//                //ZUIUtil.showDlg(CmsLaunchVideoUI.this, "视频压缩中.."+String.valueOf(percent) + "%");
+//            }
+        //});
 
 		//debug,截取60s
 //		EpVideo tmpVd=new EpVideo(video_url);
@@ -317,53 +328,17 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
 	/**
 	 * 发布动态
 	 */
-	private void sendDynamic(String videoPath) {
+	private void sendDynamic(String videoPath,String title,String content) {
 		if(hasDestroy){return;}
-
-		upload(videoPath);
-//		ZUIUtil.showDlg(CmsLaunchVideoUI.this,"上传中...");
-//		String url = HttpUtil.getUrl("/dynamic/send");
-//		Map<String, String> map = new HashMap<String, String>();
-//		map.put("access_token", MyConfig.getToken(this));
-//		map.put("title", title);
-//		map.put("content", content);
-//		RequestParams params = new RequestParams();
-//		try {
-////			video_url
-//			params.put("video", new File(videoPath));
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		}
-//		req=HttpUtil.post(this, url, map, params, new JsonHttpResponseHandler() {
-//			@Override
-//			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-//				super.onSuccess(statusCode, headers, response);
-//				RequestReturnBean returnBean = CmsLaunchVideoJson.analysis(response.toString());
-////				progressDialog.dismiss();
-//				ZUIUtil.finishDlg();
-//				if (HttpUtil.isSuccess(CmsLaunchVideoUI.this, returnBean.getCode())) {
-//					//发送广播
-//					Intent intent =new Intent();
-//					intent.setAction("upload.video.success");
-//					sendBroadcast(intent);
-//					back();
-//				}
-//			}
-//
-//			@Override
-//			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-//				super.onFailure(statusCode, headers, throwable, errorResponse);
-////				progressDialog.dismiss();
-//				ZUIUtil.finishDlg();
-//			}
-//		});
+		upload(videoPath,title,content);
 	}
-    public void upload(String videoPath){
-        String fileName= FileUtil.getFileName(new File(videoPath));
-		// Construct an upload request
-		PutObjectRequest put = new PutObjectRequest("yiren-video", fileName, videoPath);
+    public void upload(String videoPath, final String title, final String content){
 
-// You can set progress callback during asynchronous upload
+        String fileName= FileUtil.getFileName(new File(videoPath));
+		// 指定数据类型，没有指定会自动根据后缀名判断
+		PutObjectRequest put = new PutObjectRequest("yiren-video", fileName, videoPath);
+		//put.setMetadata(objectMeta);
+        //You can set progress callback during asynchronous upload
 		put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {
 			@Override
 			public void onProgress(PutObjectRequest request, long currentSize, long totalSize) {
@@ -380,6 +355,16 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
 				Log.d("------------PutObject", "3#"+request.getBucketName());
 				Log.d("------------PutObject", "4#"+request.getObjectKey());
 				Log.d("------------PutObject", "5#"+request.getUploadFilePath());
+
+				final String uploadPath="http://yiren-video.oss-cn-beijing.aliyuncs.com/"+request.getObjectKey();
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						sendCms(uploadPath,title,content);
+					}
+				});
+
+
 			}
 
 			@Override
@@ -400,6 +385,46 @@ public class CmsLaunchVideoUI extends BaseUI implements OnTouchListener {
 		});
 
 
+	}
+
+	public void sendCms(String uploadPath,String title,String content){
+				ZUIUtil.showDlg(CmsLaunchVideoUI.this,"上传中...");
+		String url = HttpUtil.getUrl("/dynamic/send");
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("access_token", MyConfig.getToken(this));
+		map.put("title", title);
+		map.put("content", content);
+		map.put("video", uploadPath);
+		RequestParams params = new RequestParams();
+		try {
+			//params.put("video", uploadPath);
+			//params.put("video", new File(videoPath));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		req=HttpUtil.post(this, url, map, params, new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+				super.onSuccess(statusCode, headers, response);
+				RequestReturnBean returnBean = CmsLaunchVideoJson.analysis(response.toString());
+//				progressDialog.dismiss();
+				ZUIUtil.finishDlg();
+				if (HttpUtil.isSuccess(CmsLaunchVideoUI.this, returnBean.getCode())) {
+					//发送广播
+					Intent intent =new Intent();
+					intent.setAction("upload.video.success");
+					sendBroadcast(intent);
+					back();
+				}
+			}
+
+			@Override
+			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+				super.onFailure(statusCode, headers, throwable, errorResponse);
+//				progressDialog.dismiss();
+				ZUIUtil.finishDlg();
+			}
+		});
 	}
 	/**
 	 * 获取表情的gridview的子view
